@@ -99,7 +99,7 @@
 
     <div class="film-detail">
         <div class="film-detail-td">NỘI DUNG PHIM
-            <div class="fb-share-button" data-href="http://localhost/btl/phim/cau-be-abe-11910/" data-layout="button_count" style="float: right;">
+            <div class="fb-share-button" data-href="http://localhost.com/btl/phim/cau-be-abe-11910/" data-layout="button_count" style="float: right;">
             </div>
         </div>
         <script>

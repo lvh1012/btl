@@ -563,6 +563,7 @@ select {
   color: #ffffff;
   background-color: #428bca;
   border-color: #428bca;
+  cursor: pointer;
 }
 
 .btn-submit:hover {

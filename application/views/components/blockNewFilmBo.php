@@ -10,7 +10,7 @@
     <div class="block-body">
         <ul class="list-film">
             <li>
-                <a class="movie-item" href="">
+                <a class="movie-item" href="<?php echo BASEURL . "/film/detail" ?>">
                     <div class="block-wrap">
                         <div class="movie-thumbnail">
                             <img src="https://i3.wp.com/image.phimmoi.net/film/11946/poster.thumb.jpg" alt="">
@@ -33,7 +33,7 @@
             </li>
 
             <li>
-                <a class="movie-item" href="">
+                <a class="movie-item" href="<?php echo BASEURL . "/film/detail" ?>">
                     <div class="block-wrap">
                         <div class="movie-thumbnail">
                             <img src="https://i3.wp.com/image.phimmoi.net/film/11946/poster.thumb.jpg" alt="">
@@ -56,7 +56,7 @@
             </li>
 
             <li>
-                <a class="movie-item" href="">
+                <a class="movie-item" href="<?php echo BASEURL . "/film/detail" ?>">
                     <div class="block-wrap">
                         <div class="movie-thumbnail">
                             <img src="https://i3.wp.com/image.phimmoi.net/film/11946/poster.thumb.jpg" alt="">
@@ -79,7 +79,7 @@
             </li>
 
             <li>
-                <a class="movie-item" href="">
+                <a class="movie-item" href="<?php echo BASEURL . "/film/detail" ?>">
                     <div class="block-wrap">
                         <div class="movie-thumbnail">
                             <img src="https://i3.wp.com/image.phimmoi.net/film/11946/poster.thumb.jpg" alt="">
@@ -102,7 +102,7 @@
             </li>
 
             <li>
-                <a class="movie-item" href="">
+                <a class="movie-item" href="<?php echo BASEURL . "/film/detail" ?>">
                     <div class="block-wrap">
                         <div class="movie-thumbnail">
                             <img src="https://i3.wp.com/image.phimmoi.net/film/11946/poster.thumb.jpg" alt="">
@@ -125,7 +125,7 @@
             </li>
 
             <li>
-                <a class="movie-item" href="">
+                <a class="movie-item" href="<?php echo BASEURL . "/film/detail" ?>">
                     <div class="block-wrap">
                         <div class="movie-thumbnail">
                             <img src="https://i3.wp.com/image.phimmoi.net/film/11946/poster.thumb.jpg" alt="">
@@ -148,7 +148,7 @@
             </li>
 
             <li>
-                <a class="movie-item" href="">
+                <a class="movie-item" href="<?php echo BASEURL . "/film/detail" ?>">
                     <div class="block-wrap">
                         <div class="movie-thumbnail">
                             <img src="https://i3.wp.com/image.phimmoi.net/film/11775/poster.small.jpg" alt="">
