@@ -31,6 +31,7 @@ class route {
             unset($url[1]);
         }
 
+
         // lay tham so
         if(isset($url)){
             $this->params = $url;

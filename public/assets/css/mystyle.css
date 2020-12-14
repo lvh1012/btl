@@ -575,10 +575,215 @@ select {
   color: red;
 }
 
-.noti{
+.noti {
   background-color: green;
-    height: 44px;
-    width: 60%;
-    margin: 0 auto;
-    text-align: center;
+  height: 44px;
+  width: 60%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Trần Anh */
+.film {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.film-col {
+  flex: 45%;
+  padding: 10px;
+}
+
+.card {
+  width: 100%;
+  margin-top: 6px;
+}
+
+.card-film {
+  position: relative;
+  margin: 0 auto;
+}
+
+.card-film img {
+  vertical-align: middle;
+  width: 100%;
+}
+
+.nav-film {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.btn {
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.btn a {
+  text-decoration: none;
+  color: white;
+}
+
+.download {
+  background-color: #4caf50;
+}
+
+.download:hover {
+  background-color: #46a049;
+}
+
+.trailer {
+  background-color: #2196f3;
+}
+
+.trailer:hover {
+  background: #0b7dda;
+}
+
+.xemphim {
+  background-color: #f44336;
+}
+
+.xemphim:hover {
+  background: #da190b;
+}
+
+.card-td {
+  margin: 0;
+  padding: 0;
+  font-size: 26px;
+  font-size: 20px;
+  color: #dacb46;
+}
+
+.card-td a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font: 26px "UTMCafetaRegular";
+  color: #dacb46;
+}
+
+.card-td p {
+  font-size: 12px;
+  margin: 5px 0;
+}
+
+.card-nd {
+  background-color: #333;
+  max-height: 250px;
+  overflow-y: scroll;
+  font-size: 12px;
+  line-height: 26px;
+  padding: 10px;
+}
+
+.card-nd ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* .card-nd ul a {
+  text-decoration: none;
+  color: blue;
+} */
+
+.card-nd ul a:hover {
+  text-decoration: underline;
+  color: yellow;
+}
+
+.card-dg {
+  margin: 5px;
+  background-color: #333;
+  font-size: 20px;
+  line-height: 26px;
+}
+
+.checked {
+  color: orange;
+}
+
+.fb-share-button {
+  margin-bottom: 0px;
+}
+
+.film-detail,
+.actors {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #333;
+}
+
+.film-detail-td,
+.actors-td {
+  font-size: 26px;
+  font-size: 14px;
+  font-weight: bold;
+  color: #dacb46;
+  text-transform: uppercase;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.actors-ds {
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.actor {
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  width: 16.66%;
+  margin-right: 5px;
+}
+
+.actor-tt {
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+/* .actor-tt a {
+  text-decoration: none;
+  color: blue;
+} */
+
+.actor-tt a:hover {
+  color: yellow;
+}
+
+.actor-tt p {
+  font-size: 13px;
+  margin: 0px 0;
+}
+
+.film-detail p {
+  font-size: 12px;
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+}
+.detail {
+  background: #4f4e52 url(../images/item_bg.gif) repeat;
+  border-bottom: 1px solid #868489;
+  color: #ddd;
+  flex: 100%;
+  padding: 10px;
+}
+
+.ytb-trailer {
+  margin-top: 10px;
+  max-width: 100%;
+  height: 350px;
 }
