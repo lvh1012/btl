@@ -4,8 +4,8 @@
             <div class="card-film">
                 <img src="http://image.phimmoizz.net/film/11910/poster.medium.jpg">
                 <div class="nav-film">
-                    <button class="btn download"><a href="#">Download </a></button>
-                    <button class="btn trailer"><a href="#">Trailer </a></button>
+                    <button class="btn download"><a target="_blank" href="<?php echo BASEURL . DS . "film/download/a.txt"?>">Download </a></button>
+                    <button class="btn trailer"><a target="_blank" href="https://www.youtube.com/watch?v=ZBA7HFd45Ds">Trailer </a></button>
                     <button class="btn xemphim"><a href="#">Xem phim </a></button>
                 </div>
             </div>

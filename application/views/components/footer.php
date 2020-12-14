@@ -1,5 +1,68 @@
 </div>
         <div id="sidebar">
+        <div class="right-box">
+                <h2 class="right-box-title">
+                    <span>Đã xem gần đây</span>
+                </h2>
+                <div class="right-box-body">
+                    <ul class="list-top-movie">
+                        <li class="list-top-movie-item">
+                            <a href="">
+                                <div class="list-top-movie-item-thumb">
+                                    <img src="https://i3.wp.com/image.phimmoi.net/film/11207/poster.small.jpg" alt="">
+                                </div>
+                                <div class="list-top-movie-item-info">
+                                    <span class="list-top-movie-item-vn">Thảm Họa Thiên Thạch</span>
+                                    <span class="list-top-movie-item-en">Greenland</span>
+                                    <span class="list-top-movie-item-view">Mức phổ biến: 1,629 điểm</span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="list-top-movie-item">
+                            <a href="">
+                                <div class="list-top-movie-item-thumb">
+                                    <img src="https://i3.wp.com/image.phimmoi.net/film/11207/poster.small.jpg" alt="">
+                                </div>
+                                <div class="list-top-movie-item-info">
+                                    <span class="list-top-movie-item-vn">Thảm Họa Thiên Thạch</span>
+                                    <span class="list-top-movie-item-en">Greenland</span>
+                                    <span class="list-top-movie-item-view">Mức phổ biến: 1,629 điểm</span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="list-top-movie-item">
+                            <a href="">
+                                <div class="list-top-movie-item-thumb">
+                                    <img src="https://i3.wp.com/image.phimmoi.net/film/11207/poster.small.jpg" alt="">
+                                </div>
+                                <div class="list-top-movie-item-info">
+                                    <span class="list-top-movie-item-vn">Thảm Họa Thiên Thạch</span>
+                                    <span class="list-top-movie-item-en">Greenland</span>
+                                    <span class="list-top-movie-item-view">Mức phổ biến: 1,629 điểm</span>
+                                </div>
+                            </a>
+                        </li>
+
+                        <li class="list-top-movie-item">
+                            <a href="">
+                                <div class="list-top-movie-item-thumb">
+                                    <img src="https://i3.wp.com/image.phimmoi.net/film/11207/poster.small.jpg" alt="">
+                                </div>
+                                <div class="list-top-movie-item-info">
+                                    <span class="list-top-movie-item-vn">Thảm Họa Thiên Thạch</span>
+                                    <span class="list-top-movie-item-en">Greenland</span>
+                                    <span class="list-top-movie-item-view">Mức phổ biến: 1,629 điểm</span>
+                                </div>
+                            </a>
+                        </li>
+
+                        
+                    </ul>
+                </div>
+            </div>
+
             <div class="right-box">
                 <h2 class="right-box-title">
                     <span>Phim lẻ hot</span>
@@ -332,7 +395,7 @@
             </div>
         </div>
     </div>
-
+    <script src="<?php echo BASEURL . "/assets/javascript/myscripts.js" ?>"></script>
 </body>
 
 </html>
