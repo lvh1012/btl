@@ -73,16 +73,15 @@ class framework
     }
 
     //Show flash message
-    public function getNoti($sessionName, $className)
+    public function getNoti($sessionName)
     {
 
-        if (!empty($sessionName) && !empty($className) && isset($_SESSION[$sessionName])) {
+        if (!empty($sessionName) && isset($_SESSION[$sessionName])) {
 
             $msg = $_SESSION[$sessionName];
-
-            echo "<div class='" . $className . "'>" . $msg . "</div>";
-            unset($_SESSION[$sessionName]);
+            return $msg;
         }
+        else return null;
     }
 
     public function redirect($path)

@@ -32,3 +32,36 @@ document.querySelector(".prev-slide").addEventListener("click", function () {
   changeSlide(false);
   restart();
 });
+
+
+// Hàm gọi api thêm/xóa phim yêu thích
+function addFavorite(ele) {
+  className = ele.classList[0];
+  if (className === 'add-favorite') {
+    var api = new XMLHttpRequest();
+    api.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        // var rs = JSON.parse(this.responseText);
+        alert(this.responseText);
+      }
+    };
+    api.open("POST", "http://localhost/BTL/api/test", true);
+    api.send();
+
+    ele.classList.remove('add-favorite');
+    ele.classList.add('remove-favorite');
+  }
+  else {
+    var api = new XMLHttpRequest();
+    api.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        // var rs = JSON.parse(this.responseText);
+        alert(this.responseText);
+      }
+    };
+    api.open("POST", "http://localhost/BTL/api/test", true);
+    api.send();
+    ele.classList.remove('remove-favorite');
+    ele.classList.add('add-favorite');
+  }
+}

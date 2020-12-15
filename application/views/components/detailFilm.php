@@ -3,6 +3,7 @@
         <div class="film-col">
             <div class="card-film">
                 <img src="http://image.phimmoizz.net/film/11910/poster.medium.jpg">
+                <span id="bookmark-status" class="add-favorite" onclick="addFavorite(this)"></span>
                 <div class="nav-film">
                     <button class="btn download"><a target="_blank" href="<?php echo BASEURL . DS . "film/download/a.txt"?>">Download </a></button>
                     <button class="btn trailer"><a target="_blank" href="https://www.youtube.com/watch?v=ZBA7HFd45Ds">Trailer </a></button>
