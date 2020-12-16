@@ -5,7 +5,7 @@
                 <img src="http://image.phimmoizz.net/film/11910/poster.medium.jpg">
                 <span id="bookmark-status" class="add-favorite" onclick="addFavorite(this)"></span>
                 <div class="nav-film">
-                    <button class="btn download"><a target="_blank" href="<?php echo BASEURL . DS . "film/download/a.txt"?>">Download </a></button>
+                    <button class="btn download"><a target="_blank" href="<?php echo BASEURL . DS . "film/download/a.txt" ?>">Download </a></button>
                     <button class="btn trailer"><a target="_blank" href="https://www.youtube.com/watch?v=ZBA7HFd45Ds">Trailer </a></button>
                     <button class="btn xemphim"><a href="#">Xem phim </a></button>
                 </div>
@@ -98,9 +98,26 @@
         </div>
     </div>
 
+    <?php
+    function curPageURL()
+    {
+        $pageURL = 'http';
+        if ($_SERVER["HTTPS"] == "on") {
+            $pageURL .= "s";
+        }
+        $pageURL .= "://";
+        if ($_SERVER["SERVER_PORT"] != "80") {
+            $pageURL .= $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $_SERVER["REQUEST_URI"];
+        } else {
+            $pageURL .= $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
+        }
+        return $pageURL;
+    }
+    ?>
+
     <div class="film-detail">
         <div class="film-detail-td">NỘI DUNG PHIM
-            <div class="fb-share-button" data-href="http://localhost.com/btl/phim/cau-be-abe-11910/" data-layout="button_count" style="float: right;">
+            <div class="fb-share-button" data-href="<?php echo curPageURL(); ?>" data-layout="button_count" style="float: right;">
             </div>
         </div>
         <script>
