@@ -9,6 +9,6 @@ define("PASSWORD", "");
 
 // Base URL
 
-define("BASEURL", "http://localhost/BTL");
+define("BASEURL", "http://phimhay.vn");
 
 ?>

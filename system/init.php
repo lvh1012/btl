@@ -13,7 +13,7 @@ spl_autoload_register(function($className){
     require_once(ROOT . DS . 'application' . DS . 'views' . DS. $className.'.php');
 });
 
-$route = new Route;
+$route = new route;
 
 
 ?>
