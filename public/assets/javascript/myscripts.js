@@ -45,7 +45,7 @@ function addFavorite(ele) {
         alert(this.responseText);
       }
     };
-    api.open("POST", "http://localhost/BTL/api/test", true);
+    api.open("POST", "/api/test", true);
     api.send();
 
     ele.classList.remove('add-favorite');
