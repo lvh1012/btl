@@ -864,7 +864,7 @@ select {
   display: inline-block;
   margin: 0;
   padding: 0;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0, 0, 0, 0.8);
   position: absolute;
   top: 10px;
   left: 10px;
@@ -872,10 +872,203 @@ select {
   border-radius: 3px;
 }
 
-.add-favorite{
+.add-favorite {
   background: url(../images/image.png) no-repeat -36px -836px;
 }
 
 .remove-favorite {
   background: url(../images/image.png) no-repeat -95px -836px;
+}
+
+.comment {
+  background: #4f4e52 url(../images/item_bg.gif) repeat;
+  border-bottom: 1px solid #868489;
+}
+
+/* Huy */
+.widget-area {
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+  float: left;
+  margin-top: 30px;
+  padding: 25px 30px;
+  position: relative;
+  width: 30%;
+}
+.status-upload textarea {
+  width: 95%;
+  font-size: 14px;
+  height: 25px;
+  letter-spacing: 0.3px;
+  padding: 20px 10px;
+  resize: vertical;
+  outline: none;
+  border: 1px solid #ccc;
+  background: none repeat scroll 0 0 #fff;
+  border-radius: 4px 4px 0 0;
+  color: #777777;
+}
+
+.box-comment-bottom {
+  display: flex;
+  justify-content: flex-end;
+}
+.action {
+  display: flex;
+}
+
+.button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 11px 26px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 0 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.button1 {
+  font-size: 15px;
+}
+.avatar {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  margin-right: 7px;
+}
+
+.avatar-content {
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  margin-right: 7px;
+}
+
+/* Tran Anh */
+
+.watch-film {
+  color: white;
+  background: #4f4e52 url(../images/item_bg.gif) repeat;
+  border-bottom: 1px solid #868489;
+  flex: 100%;
+  padding: 10px;
+}
+.movie-gt {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.movie-gt-left {
+  flex: 160px;
+  position: relative;
+  margin: 0 auto;
+}
+
+.movie-gt-left img {
+  vertical-align: middle;
+  width: 100%;
+}
+
+.movie-trailer {
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  color: #f1f1f1;
+  width: 140px;
+  padding: 10px;
+  text-align: center;
+}
+
+.movie-trailer a:hover {
+  color: yellow;
+}
+
+.movie-gt-right {
+  flex: 460px;
+  padding: 10px;
+  padding-right: 0px;
+}
+
+.movie-tt h1 {
+  margin: 0;
+  padding: 0;
+}
+
+
+.movie-tt h1 a {
+  text-decoration: none;
+  text-transform: uppercase;
+  font: 26px "UTMCafetaRegular";
+  color: #dacb46;
+}
+
+.movie-tt p {
+  margin: 5px 0;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.movie-tt p a:hover {
+  color: yellow;
+}
+
+.movie-tt-nd {
+  padding: 5px;
+  background-color: #333;
+  overflow-x: auto;
+  height: 115px;
+}
+/* 
+.movie,
+.movie-tap,
+.movie-dg {
+  margin-top: 10px;
+  width: 100%;
+}
+*/
+.movie h1,
+.movie-tap h1,
+.movie-dg h1 {
+  margin: 0;
+  padding: 0;
+  text-transform: uppercase;
+  font: 26px "UTMCafetaRegular";
+  color: #dacb46;
+}
+
+.movie iframe {
+  width: 100%;
+  border: none;
+}
+
+.movie-dg-nd {
+  padding: 5px;
+  background-color: #333;
+  font-size: 20px;
+}
+
+.checked {
+  color: orange;
+}
+
+.movie-dg-nd p {
+  margin: 0;
+  font-size: 12px;
+}
+
+.movie-tap-nd a {
+  margin: 5px;
+  font-size: 20px;
+  padding: 5px;
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+}
+
+.movie-tap-nd a:hover {
+  background-color: red;
 }

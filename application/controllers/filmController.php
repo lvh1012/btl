@@ -20,10 +20,9 @@ class filmController extends framework
 
     public function watch($filmID)
     {
-        echo "id:" . $filmID;
-        echo "<br>";
+
+        // them phim vao danh sach xem gan nhat
         $watchLatest = $this->getNoti("watchLatest");
-        echo "latest: " . $watchLatest;
         if (isset($watchLatest)) {
             $list = explode("|", $watchLatest);
             if (!in_array($filmID, $list)) {
@@ -36,6 +35,8 @@ class filmController extends framework
         } else {
             $this->setNoti("watchLatest", $filmID);
         }
+
+        $this->view("watch", $filmID);
     }
 
     public function download($file)

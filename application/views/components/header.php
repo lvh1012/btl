@@ -3,7 +3,8 @@
 
 <head>
     <title>Page Title</title>
-    <link rel="stylesheet" href=<?php echo BASEURL . "/assets/css/mystyle.css" ?>>
+    <link rel="stylesheet" href="<?php echo BASEURL . "/assets/css/mystyle.css" ?>">
+    <link rel="shortcut icon" href="<?php echo BASEURL . "/assets/images/favicon.ico" ?>" type="image/x-icon"/>
 </head>
 
 <body>
