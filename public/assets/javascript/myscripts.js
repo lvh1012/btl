@@ -59,9 +59,27 @@ function addFavorite(ele) {
         alert(this.responseText);
       }
     };
-    api.open("POST", "http://localhost/BTL/api/test", true);
+    api.open("POST", "/api/test", true);
     api.send();
     ele.classList.remove('remove-favorite');
     ele.classList.add('add-favorite');
   }
+}
+
+function sendComment(){
+  
+  var api = new XMLHttpRequest();
+  var cmt = {
+    film_id : document.getElementById("film-id").value,
+    comment: document.getElementById("comment").value,
+  };
+    api.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        // var rs = JSON.parse(this.responseText);
+        alert(this.responseText);
+      }
+    };
+    api.open("POST", "/api/comment", true);
+    api.setRequestHeader("Content-type", "application/json");
+    api.send(JSON.stringify(cmt));
 }

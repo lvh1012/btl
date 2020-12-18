@@ -2,20 +2,21 @@
     <div class="film">
         <div class="film-col">
             <div class="card-film">
-                <img src="http://image.phimmoizz.net/film/11910/poster.medium.jpg">
+            
+                <img src="<?php echo $data->poster?>">
                 <span id="bookmark-status" class="add-favorite" onclick="addFavorite(this)"></span>
                 <div class="nav-film">
-                    <button class="btn download"><a target="_blank" href="<?php echo BASEURL . DS . "film/download/a.txt" ?>">Download </a></button>
-                    <button class="btn trailer"><a target="_blank" href="https://www.youtube.com/watch?v=ZBA7HFd45Ds">Trailer </a></button>
-                    <button class="btn xemphim"><a href="#">Xem phim </a></button>
+                    <button class="btn download"><a target="_blank" href="<?php echo "/film/download/" . $data->film_id ?>">Download </a></button>
+                    <button class="btn trailer"><a target="_blank" href="<?php echo $data->trailer?>">Trailer </a></button>
+                    <button class="btn xemphim"><a href="<?php echo "/film/watch/". $data->film_id?>">Xem phim </a></button>
                 </div>
             </div>
         </div>
         <div class="film-col">
             <div class="card">
                 <div class="card-td">
-                    <a href="#">CẬU BÉ ABE</a>
-                    <p style="color: #ddd;">Abe (2020)</p>
+                    <a href="#"><?php echo $data->name_vi?></a>
+                    <p style="color: #ddd;"><?php echo $data->name_en . " (" . $data->year . ")"?></p>
                 </div>
                 <div class="card-nd">
                     <ul>
@@ -31,7 +32,7 @@
                             <a href="#">Brazil</a>
                         </li>
                         <li><b>Ngày phát hành: </b>17/4/2020</li>
-                        <li><b>Thời lượng: </b>85 phút</li>
+                        <li><b>Thời lượng: </b><?php echo $data->time?> phút</li>
                         <li><b>Chất lượng: </b>Bản đẹp</li>
                         <li><b>Độ phân giải: </b>Full HD</li>
                         <li><b>Ngôn ngữ: </b>Phục đề tiếng Việt</li>
@@ -130,14 +131,13 @@
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
-        <p>Abe là một cậu bé 12 tuổi đến từ Brooklyn. Cậu bé đam mê nấu ăn muốn gắn kết gia đình nửa dòng
-            máu Pakistan nửa dòng máu Israel của mình nhưng mọi chuyện không được suôn sẻ</p>
+        <p><?php echo $data->description?></p>
     </div>
 
     <div class="film-detail">
         <div class="film-detail-td">TRAILER</div>
         <div class="ytb-trailer">
-            <iframe src="https://www.youtube.com/embed/zgSjiwdZSSM?modestbranding=1&amp;iv_load_policy=3&amp;showinfo=1&amp;rel=0" width="100%" height="100%" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" frameborder="no" scrolling="no"></iframe>
+            <iframe src="<?php echo "https://www.youtube.com/embed/". explode("/",$data->trailer)[3]?>" width="100%" height="100%" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" frameborder="no" scrolling="no"></iframe>
         </div>
     </div>
 </div>

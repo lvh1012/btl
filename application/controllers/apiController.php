@@ -6,6 +6,15 @@ class apiController extends framework
         $this->response(200, "ok");
     }
 
+    public function comment (){
+        $data = json_decode(file_get_contents('php://input'), true);
+        $data['user_id'] = $_SESSION['userId'];
+        $cmt = new commentModel;
+        if($cmt->addComment($data)) 
+            $this->response(200, "'status': 'success'");
+        else $this->response(200, "'status': 'fail'");
+    }
+
     public function response($status_code, $data = NULL)
     {
         header($this->http_header($status_code));

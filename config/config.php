@@ -3,9 +3,9 @@
 // Database configurations 
 
 define("HOST", "localhost");
-define("USER", "root");
+define("USER", "admin");
 define("DATABASE", "btl");
-define("PASSWORD", "");
+define("PASSWORD", "12345678");
 
 // Base URL
 

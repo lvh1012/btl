@@ -6,6 +6,7 @@ class filmController extends framework
 
     public function __construct()
     {
+        $this->filmModel = $this->model('filmModel');
     }
 
     public function index($filmID)
@@ -13,14 +14,14 @@ class filmController extends framework
         // $this->view("home");
     }
 
-    public function detail()
+    public function detail($filmID = null)
     {
-        $this->view("detail", $filmID);
+        $data = $this->filmModel->getDetail($filmID);
+        $this->view("detail", $data);
     }
 
-    public function watch($filmID)
+    public function watch($filmID = null)
     {
-
         // them phim vao danh sach xem gan nhat
         $watchLatest = $this->getNoti("watchLatest");
         if (isset($watchLatest)) {
@@ -35,8 +36,8 @@ class filmController extends framework
         } else {
             $this->setNoti("watchLatest", $filmID);
         }
-
-        $this->view("watch", $filmID);
+        $data = $this->filmModel->getDetail($filmID);
+        $this->view("watch", $data);
     }
 
     public function download($file)

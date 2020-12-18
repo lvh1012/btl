@@ -1,17 +1,30 @@
+<?php
+// Create connection
+$conn = mysqli_connect(HOST, USER, PASSWORD, DATABASE);
+// Check connection
+if (!$conn) {
+    die("Connection failed: " . mysqli_connect_error());
+} else {
+    $conn->set_charset("utf8");
+}
+?>
+
+
 <!DOCTYPE html>
 <html>
 
 <head>
     <title>Page Title</title>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="<?php echo BASEURL . "/assets/css/mystyle.css" ?>">
-    <link rel="shortcut icon" href="<?php echo BASEURL . "/assets/images/favicon.ico" ?>" type="image/x-icon"/>
+    <link rel="shortcut icon" href="<?php echo BASEURL . "/assets/images/favicon.ico" ?>" type="image/x-icon" />
 </head>
 
 <body>
     <div class="header">
         <div class="row">
             <div class="header-logo">
-                <a class="logo" href=<?php echo BASEURL ?>>
+                <a class="logo" href="<?php echo BASEURL ?>">
                     <h1>PHIMHAY.VN</h1>
                 </a>
             </div>
@@ -34,42 +47,26 @@
         <div class="row">
             <ul class="menu">
                 <li>
-                    <a href="">phim hay</a>
+                    <a href="<?php echo BASEURL ?>">phim hay</a>
                 </li>
                 <li class="category">
                     <a href="">thể loại</a>
                     <div class="sub-menu list-category">
                         <ul class="sub">
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
+                            <?php
+
+                            $sql = "SELECT name FROM category";
+                            $result = mysqli_query($conn, $sql);
+
+                            if (mysqli_num_rows($result) > 0) {
+                                // output data of each row
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "<li><a> Phim " . strtolower($row['name']) . "</a></li>";
+                                }
+                            }
+
+                            // mysqli_close($conn);
+                            ?>
                         </ul>
                     </div>
                 </li>
@@ -77,109 +74,57 @@
                     <a href="">quốc gia</a>
                     <div class="sub-menu list-nation">
                         <ul class="sub">
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
+                            <?php
+
+                            $sql = "SELECT name FROM nation";
+                            $result = mysqli_query($conn, $sql);
+
+                            if (mysqli_num_rows($result) > 0) {
+                                // output data of each row
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    echo "<li><a> " . $row['name'] . "</a></li>";
+                                }
+                            }
+
+                            mysqli_close($conn);
+                            ?>
                         </ul>
                     </div>
                 </li>
                 <li class="movie">
-                    <a href="">phim le</a>
+                    <a href="">phim lẻ</a>
                     <div class="sub-menu list-movie">
                         <ul class="sub">
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
+                            <?php
+                            $year = array(2020, 2019, 2018, 2017,2016, 2015, 2014, "khác");
+                            foreach ($year as &$value) {
+                                echo "<li><a> Năm " . $value . "</a></li>";;
+                            }
+                            ?>
                         </ul>
                     </div>
                 </li>
                 <li class="seri">
-                    <a href="">phim bo</a>
+                    <a href="">phim bộ</a>
                     <div class="sub-menu list-seri">
                         <ul class="sub">
                             <li>
-                                <a> phim hành dong </a>
+                                <a> Phim bộ Hàn Quốc </a>
                             </li>
                             <li>
-                                <a> phim hành dong </a>
+                                <a> Phim bộ Trung Quốc </a>
                             </li>
                             <li>
-                                <a> phim hành dong </a>
+                                <a> Phim bộ Thái Lan </a>
                             </li>
                             <li>
-                                <a> phim hành dong </a>
+                                <a> Phim bộ Đài Loan </a>
                             </li>
                             <li>
-                                <a> phim hành dong </a>
+                                <a> Phim bộ Hồng Kông </a>
                             </li>
                             <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
-                            </li>
-                            <li>
-                                <a> phim hành dong </a>
+                                <a> Phim bộ Mỹ </a>
                             </li>
                         </ul>
                     </div>

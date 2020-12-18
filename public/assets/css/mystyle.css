@@ -377,7 +377,7 @@ img {
 .sub li {
   list-style: none;
   float: none;
-  width: 150px;
+  width: 140px;
   display: inline-block;
 }
 
@@ -579,9 +579,9 @@ select {
 .noti {
   background-color: green;
   height: 44px;
-  width: 60%;
   margin: 0 auto;
   text-align: center;
+  line-height: 44px;
 }
 
 /* Trần Anh */
@@ -880,21 +880,47 @@ select {
   background: url(../images/image.png) no-repeat -95px -836px;
 }
 
+/* Huy */
 .comment {
   background: #4f4e52 url(../images/item_bg.gif) repeat;
-  border-bottom: 1px solid #868489;
+  flex: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  overflow: hidden;
 }
 
-/* Huy */
+.avatar-user {
+  width: 50px;
+  height: 50px;
+  background: #ddd;
+  text-align: center;
+  color: #666;
+  text-transform: uppercase;
+  font-size: 36px;
+  line-height: 50px;
+  font-weight: 600;
+  text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.col-avatar {
+  width: 70px;
+}
+
+.input-comment {
+  width: 100%;
+  height: 100px;
+}
+
+/* comment box */
 .widget-area {
-  background-color: #fff;
   border-radius: 4px;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
   float: left;
-  margin-top: 30px;
-  padding: 25px 30px;
+  /* margin-top: -4px; */
+  padding: 10px;
   position: relative;
-  width: 30%;
+  margin-bottom: 10px;
+  width: calc(100% - 20px);
 }
 .status-upload textarea {
   width: 95%;
@@ -903,11 +929,11 @@ select {
   letter-spacing: 0.3px;
   padding: 20px 10px;
   resize: vertical;
-  outline: none;
-  border: 1px solid #ccc;
-  background: none repeat scroll 0 0 #fff;
   border-radius: 4px 4px 0 0;
-  color: #777777;
+  background-color: #333333;
+  border: 1px solid black;
+  outline: none;
+  color: white;
 }
 
 .box-comment-bottom {
@@ -918,21 +944,6 @@ select {
   display: flex;
 }
 
-.button {
-  background-color: #4caf50; /* Green */
-  border: none;
-  color: white;
-  padding: 11px 26px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px 0 4px 2px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-.button1 {
-  font-size: 15px;
-}
 .avatar {
   border-radius: 50%;
   width: 50px;
@@ -945,6 +956,21 @@ select {
   width: 30px;
   height: 30px;
   margin-right: 7px;
+}
+
+.button-submit-comment {
+  border: none;
+  padding: 11px 26px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 4px 0 4px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 15px;
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #428bca;
 }
 
 /* Tran Anh */
@@ -997,7 +1023,6 @@ select {
   margin: 0;
   padding: 0;
 }
-
 
 .movie-tt h1 a {
   text-decoration: none;

@@ -2,7 +2,7 @@
 
 class userModel extends database {
     public function checkEmail($email){
-        if($this->Query("SELECT email FROM users WHERE email = ?", [$email])){
+        if($this->Query("SELECT email FROM user WHERE email = ?", [$email])){
 
             if($this->rowCount() > 0 ){
                 return false;
@@ -16,20 +16,21 @@ class userModel extends database {
 
     public function createAccount($data){
 
-        if($this->Query("INSERT INTO users (email, fullname, gender, password) VALUES (?,?,?,?)", $data)){
+        if($this->Query("INSERT INTO user (name, email, gender, password) VALUES (?,?,?,?)", $data)){
             return true;
         }
     }
 
     public function userLogin($email, $password){
 
-        if($this->Query("SELECT * FROM users WHERE email = ? ", [$email])){
+        if($this->Query("SELECT * FROM user WHERE email = ? ", [$email])){
             if($this->rowCount() > 0 ){
                 $row = $this->fetch();
                 $dbPassword = $row->password;
-                $userId = $row->id;
+                $userId = $row->user_id;
+                $name = $row->name;
                 if(password_verify($password, $dbPassword)){
-                    return ['status' => 'ok', 'data' => $userId];
+                    return ['status' => 'ok', 'user_id' => $userId, 'name' => $name];
                 } else {
                     return ['status' => 'passwordNotMacthed'];
                 }

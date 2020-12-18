@@ -46,6 +46,8 @@ class userController extends framework
 
         if (empty($userData['email'])) {
             $userData['emailError'] = "Email is required";
+        } else if (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $userData['email'])) {
+            $userData['emailError'] = "Email is Invalid";
         }
 
         if (empty($userData['password'])) {
@@ -63,7 +65,8 @@ class userController extends framework
                 $userData['passwordError'] = "Sorry invalid password";
                 $this->view("login", $userData);
             } else if ($result['status'] === "ok") {
-                $this->setSession("userId", $result['data']);
+                $this->setSession("userId", $result['user_id']);
+                $this->setSession("username", $result['name']);
                 $this->redirect("home");
             }
         } else {
@@ -93,7 +96,9 @@ class userController extends framework
         }
 
         if (empty($userData['email'])) {
-            $userData['emailError'] = 'Email is required';
+            $userData['emailError'] = "Email is required";
+        } else if (!preg_match("/^([a-z0-9\+_\-]+)(\.[a-z0-9\+_\-]+)*@([a-z0-9\-]+\.)+[a-z]{2,6}$/ix", $userData['email'])) {
+            $userData['emailError'] = "Email is Invalid";
         } else {
             if (!$this->userModel->checkEmail($userData['email'])) {
 
@@ -111,8 +116,9 @@ class userController extends framework
             empty($userData['fullnameError']) && empty($userData['emailError'])
             && empty($userData['passwordError']) && empty($userData['genderError'])
         ) {
+
             $password = password_hash($userData['password'], PASSWORD_DEFAULT);
-            $data = [$userData['email'], $userData['fullname'], $userData['gender'], $password];
+            $data = [$userData['fullname'], $userData['email'], $userData['gender'], $password];
 
             if ($this->userModel->createAccount($data)) {
 

@@ -2,18 +2,18 @@
     <div class="movie-gt">
 
         <div class="movie-gt-left">
-            <img src="http://image.phimmoizz.net/film/11947/poster.medium.jpg">
+            <img src="<?php echo $data->poster; ?>">
             <div class="movie-trailer">
-                <a href="#">Trailer</a>
+                <a href="<?php echo $data->trailer?>">Trailer</a>
             </div>
         </div>
 
         <div class="movie-gt-right">
             <div class="movie-tt">
-                <h1><a href="#">XEM PHIM ĐẠI CHIẾN TITAN (PHẦN CUỐI)</a></h1>
-                <p>Attack on Titan: The final season</p>
+                <h1><a href="#"><?php echo "XEM PHIM ". $data->name_vi; ?></a></h1>
+                <p><?php echo "Xem phim ". $data->name_en; ?></p>
                 <div class="movie-tt-nd">
-                    <p>Đã sáu năm trôi qua kể từ ngày Titan Đại Hình xuất hiện phá cổng thành Maria và bắt đầu công cuộc xâm lược đẫm máu. Sau rất nhiều những mất mát đau thương, những binh sĩ Trinh Sát Binh Đoàn cuối cùng ... [<a href="#">Xem thêm</a>]</p>
+                    <p><?php echo $data->description; ?>[<a href="<?php echo "/film/detail/" . $data->film_id; ?>">Xem thêm</a>]</p>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
     </div>
 
     <div class="movie-dg" style="margin-top: 10px; background-color: #333;padding: 10px">
-        <h1>Đánh giá phim <div class="fb-share-button" data-href="http://www.phimmoizz.net/phim/cau-be-abe-11910/" data-layout="button_count" style="float: right; margin-top: -10px;">
+        <h1>Đánh giá phim <div class="fb-share-button" data-href="<?php echo "http://phimhay.vn/film/detail/" .$data->film_id ?>" data-layout="button_count" style="float: right; margin-top: -10px;">
             </div>
         </h1>
         <script>

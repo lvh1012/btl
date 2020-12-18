@@ -14,7 +14,8 @@ class database {
 
      try{
 
-        return $this->con = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->database,$this->user, $this->password);
+        return $this->con = new PDO("mysql:host=" . $this->host . ";dbname=" . $this->database,$this->user, $this->password, 
+        array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8") );
        
 
      } catch(PDOException $e){
