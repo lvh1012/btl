@@ -916,10 +916,9 @@ select {
   border-radius: 4px;
   box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
   float: left;
-  /* margin-top: -4px; */
+  margin-top: -4px;
   padding: 10px;
   position: relative;
-  margin-bottom: 10px;
   width: calc(100% - 20px);
 }
 .status-upload textarea {
@@ -934,6 +933,10 @@ select {
   border: 1px solid black;
   outline: none;
   color: white;
+}
+
+.comment-content {
+  border-bottom: 1px solid #333;
 }
 
 .box-comment-bottom {
@@ -1096,4 +1099,30 @@ select {
 
 .movie-tap-nd a:hover {
   background-color: red;
+}
+
+.btn-small {
+  padding: 7px 20px;
+  line-height: 2.5;
+  border-radius: 3px;
+  border: 1px solid transparent;
+}
+
+.btn-red {
+  color: #ffffff;
+  background-color: #d9534f;
+  border-color: #d9534f;
+}
+
+.btn-black {
+  color: #ffffff;
+  background-color: #428bca;
+  border-color: #428bca;
+}
+
+.not-found {
+  text-align: center;
+  text-transform: uppercase;
+  font: 40px/10px "UTMCafetaRegular";
+  color: #dacb46;
 }

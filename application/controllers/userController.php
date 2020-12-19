@@ -33,6 +33,25 @@ class userController extends framework
         }
     }
 
+    public function favorite()
+    {
+        if (!$this->getSession('userId')) {
+            $this->setNoti("notiLoginForm", "Bạn phải đăng nhập để sử dụng chức năng này");
+            $this->redirect("user/login");
+        }
+        else{
+            $data = $this->userModel->getFavoriteFilm($this->getSession('userId'));
+            $this->view("favorite", $data);
+        }
+    }
+
+    public function logout()
+    {
+        $this->unsetSession('userId');
+        $this->unsetSession('name');
+        $this->redirect("home");
+    }
+
     public function userLogin()
     {
         $userData = [
@@ -122,7 +141,7 @@ class userController extends framework
 
             if ($this->userModel->createAccount($data)) {
 
-                $this->setNoti("accountCreated", "Your account has been created successfully");
+                $this->setNoti("notiLoginForm", "Tài khoản của bạn được tạo thành công");
                 $this->redirect("user/login");
             }
         } else {

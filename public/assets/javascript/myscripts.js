@@ -36,50 +36,67 @@ document.querySelector(".prev-slide").addEventListener("click", function () {
 
 // Hàm gọi api thêm/xóa phim yêu thích
 function addFavorite(ele) {
-  className = ele.classList[0];
+  var className = ele.classList[0];
+
   if (className === 'add-favorite') {
+    var film = {
+      id: document.getElementById("film-id").value,
+      action: 'add'
+    };
+
     var api = new XMLHttpRequest();
     api.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
-        // var rs = JSON.parse(this.responseText);
-        alert(this.responseText);
+        ele.classList.remove('add-favorite');
+        ele.classList.add('remove-favorite');
       }
     };
-    api.open("POST", "/api/test", true);
-    api.send();
 
-    ele.classList.remove('add-favorite');
-    ele.classList.add('remove-favorite');
+    api.open("POST", "/api/addFavorite", true);
+    api.setRequestHeader("Content-type", "application/json");
+    api.send(JSON.stringify(film));
   }
   else {
+    var film = {
+      id: document.getElementById("film-id").value,
+      action: 'remove'
+    };
+
     var api = new XMLHttpRequest();
     api.onreadystatechange = function () {
+      // thanh cong
       if (this.readyState == 4 && this.status == 200) {
-        // var rs = JSON.parse(this.responseText);
-        alert(this.responseText);
+        ele.classList.remove('remove-favorite');
+        ele.classList.add('add-favorite');
       }
     };
-    api.open("POST", "/api/test", true);
-    api.send();
-    ele.classList.remove('remove-favorite');
-    ele.classList.add('add-favorite');
+
+    api.open("POST", "/api/addFavorite", true);
+    api.setRequestHeader("Content-type", "application/json");
+    api.send(JSON.stringify(film));
   }
 }
 
-function sendComment(){
-  
+function sendComment() {
+
+  if (!document.getElementById("comment").value)
+    return;
+
   var api = new XMLHttpRequest();
   var cmt = {
-    film_id : document.getElementById("film-id").value,
+    film_id: document.getElementById("film-id").value,
     comment: document.getElementById("comment").value,
   };
-    api.onreadystatechange = function () {
-      if (this.readyState == 4 && this.status == 200) {
-        // var rs = JSON.parse(this.responseText);
-        alert(this.responseText);
-      }
-    };
-    api.open("POST", "/api/comment", true);
-    api.setRequestHeader("Content-type", "application/json");
-    api.send(JSON.stringify(cmt));
+  api.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      var contain = document.getElementById("list-cmt");
+      contain.innerHTML = "<div class=\"comment-content\"><div style=\"display: flex;align-items: center;\"><img class=\"avatar-content\" src=\"https://secure.gravatar.com/avatar/6a9c99ca913c3cd3c4b1264f90eb9d17?s=48&d=mm&r=g\"><label><strong style=\"color: #ffffff;\">" + document.getElementById("username").value + "</strong></label><span style=\"display: inline-block; color: #ddd; opacity: 0.5;font-size: 12px;\">Vừa xong</span></div><span style=\"color: #ddd;margin-left: 35px;\">" + document.getElementById("comment").value + "</p></div>"
+        + contain.innerHTML;
+      document.getElementById("comment").value = '';
+
+    }
+  };
+  api.open("POST", "/api/comment", true);
+  api.setRequestHeader("Content-type", "application/json");
+  api.send(JSON.stringify(cmt));
 }

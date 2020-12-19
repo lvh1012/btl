@@ -16,7 +16,14 @@ class filmController extends framework
 
     public function detail($filmID = null)
     {
-        $data = $this->filmModel->getDetail($filmID);
+        $data = [ 
+            'data' =>$this->filmModel->getDetail($filmID),
+            'comment' => $this->filmModel->getComment($filmID),
+            'favorite' => false
+        ];
+        if ($this->getSession('userId')){
+            $data['favorite'] = $this->filmModel->isFavorite($this->getSession('userId'), $filmID);
+        }
         $this->view("detail", $data);
     }
 
@@ -36,7 +43,14 @@ class filmController extends framework
         } else {
             $this->setNoti("watchLatest", $filmID);
         }
-        $data = $this->filmModel->getDetail($filmID);
+
+        // tang view len 1 don vi
+        $this->filmModel->increView($filmID);
+
+        $data = [ 
+            'data' =>$this->filmModel->getDetail($filmID),
+            'comment' => $this->filmModel->getComment($filmID)
+        ];
         $this->view("watch", $data);
     }
 

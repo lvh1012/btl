@@ -20,7 +20,7 @@ class route
                 $this->controller = $url[0] . "Controller";
                 unset($url[0]);
             } else {
-                echo "<div style='margin:0;padding: 10px;background-color:silver;'>Sorry  " . $url[0] . ".php not found</div>";
+                require_once(ROOT . DS . "application" . DS . "views" . DS ."not-found.php");
                 die();
             }
         } else {
@@ -36,7 +36,7 @@ class route
                 $this->method = $url[1];
                 unset($url[1]);
             } else {
-                echo "<div style='margin:0;padding: 10px;background-color:silver;'>Sorry  method " . $url[1] . " not found</div>";
+                require_once(ROOT . DS . "application" . DS . "views" . DS ."not-found.php");
                 die();
             }
         }

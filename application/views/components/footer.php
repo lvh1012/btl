@@ -11,14 +11,14 @@ if (!$conn) {
 </div>
 <div id="sidebar">
     <?php
-    $watchLatest = $this->getNoti("watchLatest");
+    $watchLatest = $_SESSION['watchLatest'];
     if (isset($watchLatest)) {
         echo '    <div class="right-box">
         <h2 class="right-box-title">
             <span>Đã xem gần đây</span>
         </h2>
         <div class="right-box-body">
-            <ul class="list-top-movie">';
+            <ul class="list-top-movie"  style="height: auto;">';
         $list = explode("|", $watchLatest);
         foreach ($list as $film_id) {
             $sql = "SELECT * FROM film where film_id = " . $film_id;
@@ -60,7 +60,7 @@ if (!$conn) {
                         echo '<li class="list-top-movie-item">
                         <a href="">
                             <div class="list-top-movie-item-thumb">
-                                <img src="' . $row['poster'] . '" alt="">
+                                <img src="' . $row['poster'] . '">
                             </div>
                             <div class="list-top-movie-item-info">';
                         echo '<span class="list-top-movie-item-vn">' . $row['name_vi'] . '</span>';
@@ -71,8 +71,6 @@ if (!$conn) {
                     </li>';
                     }
                 }
-
-                // mysqli_close($conn);
                 ?>
             </ul>
         </div>
@@ -107,7 +105,7 @@ if (!$conn) {
                     }
                 }
 
-                // mysqli_close($conn);
+                mysqli_close($conn);
                 ?>
             </ul>
         </div>

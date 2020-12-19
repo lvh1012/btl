@@ -14,11 +14,25 @@ class userModel extends database {
 
     }
 
+    public function addFavorite($data){
+        if (!strcmp($data['action'],"remove")){
+            $this->Query('DELETE FROM favorite WHERE user_id = ? and film_id  = ?', [$data['user_id'], $data['id']]);
+        }
+        else{
+            $this->Query('INSERT INTO favorite VALUES (?,?)', [$data['user_id'], $data['id']]);
+        }
+    }
+
     public function createAccount($data){
 
         if($this->Query("INSERT INTO user (name, email, gender, password) VALUES (?,?,?,?)", $data)){
             return true;
         }
+    }
+
+    public function getFavoriteFilm ($userId) {
+        $this->Query('SELECT * FROM favorite, film WHERE favorite.film_id = film.film_id and favorite.user_id = ?', [$userId]);
+        return $this->fetchall();
     }
 
     public function userLogin($email, $password){

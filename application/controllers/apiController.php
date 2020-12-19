@@ -2,17 +2,29 @@
 
 class apiController extends framework
 {
-    public function test (){
-        $this->response(200, "ok");
+    public function addFavorite()
+    {
+        if ($_SESSION['userId']) {
+            $data = json_decode(file_get_contents('php://input'), true);
+            $data['user_id'] = $_SESSION['userId'];
+            $user = new userModel;
+            $user->addFavorite($data);
+            $rp = ['status' => 'ok'];
+            $this->response(200, $rp);
+        } else {
+            $rp = ['status' => 'error'];
+            $this->response(200, $rp);
+        }
     }
 
-    public function comment (){
+    public function comment()
+    {
         $data = json_decode(file_get_contents('php://input'), true);
         $data['user_id'] = $_SESSION['userId'];
         $cmt = new commentModel;
-        if($cmt->addComment($data)) 
-            $this->response(200, "'status': 'success'");
-        else $this->response(200, "'status': 'fail'");
+        if ($cmt->addComment($data)){
+            $this->response(200);
+        }
     }
 
     public function response($status_code, $data = NULL)

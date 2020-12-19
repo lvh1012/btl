@@ -7,9 +7,27 @@ class filmModel extends database {
         return $this->fetchall();
     }
 
+    public function increView($ID){
+        $this->Query('update film set num_view = num_view + 1 where film_id = ?', [$ID]);
+    }
+
     public function getDetail($ID){
         $this->Query('SELECT * FROM film where film_id =  ?', [$ID]);
         return $this->fetch();
+    }
+
+    public function getComment($ID){
+        $this->Query('SELECT * FROM comment, user WHERE user.user_id = comment.user_id and film_id=  ? order by time DESC', [$ID]);
+        return $this->fetchall();
+    }
+
+    public function isFavorite($user_id, $film_id){
+        $this->Query('SELECT * FROM favorite where user_id =  ? and film_id = ?', [$user_id, $film_id]);
+        if($this->rowCount() > 0 ){
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

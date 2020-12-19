@@ -13,6 +13,8 @@ spl_autoload_register(function($className){
     require_once(ROOT . DS . 'application' . DS . 'views' . DS. $className.'.php');
 });
 
+require(ROOT . DS . 'system' . DS . 'library' . DS. 'lib.php');
+
 $route = new route;
 
 

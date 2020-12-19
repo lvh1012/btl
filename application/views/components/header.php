@@ -36,9 +36,17 @@ if (!$conn) {
                 </form>
             </div>
             <div class="user-header">
-                <a class="button-register" href=<?php echo BASEURL . "/user/register" ?>></a>
-                <a class="button-login" href=<?php echo BASEURL . "/user/login" ?>></a>
-                <a class="button-login-with-fb" href=""></a>
+                <?php
+                if (isset($_SESSION['userId'])) {
+                    echo '<a href="/user/favorite" type="button" class="btn-red btn-small">Tủ phim</a>';
+                    echo '<a href="/user/logout" type="button" class="btn-black btn-small">Đăng xuất</a>';
+                } else {
+                    echo '<a class="button-register" href="/user/register"></a>';
+                    echo '<a class="button-login" href="/user/login" ></a>';
+                    echo '<a class="button-login-with-fb" href="javascript:void(0);"></a>';
+                }
+                
+                ?>
             </div>
         </div>
     </div>
@@ -50,7 +58,7 @@ if (!$conn) {
                     <a href="<?php echo BASEURL ?>">phim hay</a>
                 </li>
                 <li class="category">
-                    <a href="">thể loại</a>
+                    <a href="javascript:void(0);">thể loại</a>
                     <div class="sub-menu list-category">
                         <ul class="sub">
                             <?php
@@ -71,7 +79,7 @@ if (!$conn) {
                     </div>
                 </li>
                 <li class="nation">
-                    <a href="">quốc gia</a>
+                    <a href="javascript:void(0);">quốc gia</a>
                     <div class="sub-menu list-nation">
                         <ul class="sub">
                             <?php
@@ -92,7 +100,7 @@ if (!$conn) {
                     </div>
                 </li>
                 <li class="movie">
-                    <a href="">phim lẻ</a>
+                    <a href="javascript:void(0);">phim lẻ</a>
                     <div class="sub-menu list-movie">
                         <ul class="sub">
                             <?php
@@ -105,7 +113,7 @@ if (!$conn) {
                     </div>
                 </li>
                 <li class="seri">
-                    <a href="">phim bộ</a>
+                    <a href="javascript:void(0);">phim bộ</a>
                     <div class="sub-menu list-seri">
                         <ul class="sub">
                             <li>
@@ -130,13 +138,13 @@ if (!$conn) {
                     </div>
                 </li>
                 <li>
-                    <a href="">phim chiếu rạp</a>
+                    <a href="javascript:void(0);">phim chiếu rạp</a>
                 </li>
                 <li>
-                    <a href="">Trailer</a>
+                    <a href="javascript:void(0);">Trailer</a>
                 </li>
                 <li>
-                    <a href="">top imdb 2020</a>
+                    <a href="javascript:void(0);">top imdb 2020</a>
                 </li>
             </ul>
         </div>

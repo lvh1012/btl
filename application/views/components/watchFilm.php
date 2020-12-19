@@ -2,18 +2,18 @@
     <div class="movie-gt">
 
         <div class="movie-gt-left">
-            <img src="<?php echo $data->poster; ?>">
+            <img src="<?php echo $data['data']->poster; ?>">
             <div class="movie-trailer">
-                <a href="<?php echo $data->trailer?>">Trailer</a>
+                <a href="<?php echo $data['data']->trailer?>">Trailer</a>
             </div>
         </div>
 
         <div class="movie-gt-right">
             <div class="movie-tt">
-                <h1><a href="#"><?php echo "XEM PHIM ". $data->name_vi; ?></a></h1>
-                <p><?php echo "Xem phim ". $data->name_en; ?></p>
+                <h1><a href="#"><?php echo "XEM PHIM ". $data['data']->name_vi; ?></a></h1>
+                <p><?php echo "Xem phim ". $data['data']->name_en; ?></p>
                 <div class="movie-tt-nd">
-                    <p><?php echo $data->description; ?>[<a href="<?php echo "/film/detail/" . $data->film_id; ?>">Xem thêm</a>]</p>
+                    <p><?php echo $data['data']->description; ?>[<a href="<?php echo "/film/detail/" . $data['data']->film_id; ?>">Xem thêm</a>]</p>
                 </div>
             </div>
         </div>
@@ -24,7 +24,7 @@
     </div>
 
     <div class="movie-dg" style="margin-top: 10px; background-color: #333;padding: 10px">
-        <h1>Đánh giá phim <div class="fb-share-button" data-href="<?php echo "http://phimhay.vn/film/detail/" .$data->film_id ?>" data-layout="button_count" style="float: right; margin-top: -10px;">
+        <h1>Đánh giá phim <div class="fb-share-button" data-href="<?php echo "http://phimhay.vn/film/detail/" .$data['data']->film_id ?>" data-layout="button_count" style="float: right; margin-top: -10px;">
             </div>
         </h1>
         <script>

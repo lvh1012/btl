@@ -3,20 +3,27 @@
         <div class="film-col">
             <div class="card-film">
             
-                <img src="<?php echo $data->poster?>">
-                <span id="bookmark-status" class="add-favorite" onclick="addFavorite(this)"></span>
+                <img src="<?php echo $data['data']->poster?>">
+                <?php 
+                    if ($data['favorite']){
+                        echo '<span id="bookmark-status" class="remove-favorite" onclick="addFavorite(this)"></span>';
+                    }
+                    else {
+                        echo '<span id="bookmark-status" class="add-favorite" onclick="addFavorite(this)"></span>';
+                    }
+                ?>
                 <div class="nav-film">
-                    <button class="btn download"><a target="_blank" href="<?php echo "/film/download/" . $data->film_id ?>">Download </a></button>
-                    <button class="btn trailer"><a target="_blank" href="<?php echo $data->trailer?>">Trailer </a></button>
-                    <button class="btn xemphim"><a href="<?php echo "/film/watch/". $data->film_id?>">Xem phim </a></button>
+                    <button class="btn download"><a target="_blank" href="<?php echo "/film/download/" . $data['data']->film_id ?>">Download </a></button>
+                    <button class="btn trailer"><a target="_blank" href="<?php echo $data['data']->trailer?>">Trailer </a></button>
+                    <button class="btn xemphim"><a href="<?php echo "/film/watch/". $data['data']->film_id?>">Xem phim </a></button>
                 </div>
             </div>
         </div>
         <div class="film-col">
             <div class="card">
                 <div class="card-td">
-                    <a href="#"><?php echo $data->name_vi?></a>
-                    <p style="color: #ddd;"><?php echo $data->name_en . " (" . $data->year . ")"?></p>
+                    <a href="#"><?php echo $data['data']->name_vi?></a>
+                    <p style="color: #ddd;"><?php echo $data['data']->name_en . " (" . $data['data']->year . ")"?></p>
                 </div>
                 <div class="card-nd">
                     <ul>
@@ -32,7 +39,7 @@
                             <a href="#">Brazil</a>
                         </li>
                         <li><b>Ngày phát hành: </b>17/4/2020</li>
-                        <li><b>Thời lượng: </b><?php echo $data->time?> phút</li>
+                        <li><b>Thời lượng: </b><?php echo $data['data']->time?> phút</li>
                         <li><b>Chất lượng: </b>Bản đẹp</li>
                         <li><b>Độ phân giải: </b>Full HD</li>
                         <li><b>Ngôn ngữ: </b>Phục đề tiếng Việt</li>
@@ -99,23 +106,6 @@
         </div>
     </div>
 
-    <?php
-    function curPageURL()
-    {
-        $pageURL = 'http';
-        if ($_SERVER["HTTPS"] == "on") {
-            $pageURL .= "s";
-        }
-        $pageURL .= "://";
-        if ($_SERVER["SERVER_PORT"] != "80") {
-            $pageURL .= $_SERVER["SERVER_NAME"] . ":" . $_SERVER["SERVER_PORT"] . $_SERVER["REQUEST_URI"];
-        } else {
-            $pageURL .= $_SERVER["SERVER_NAME"] . $_SERVER["REQUEST_URI"];
-        }
-        return $pageURL;
-    }
-    ?>
-
     <div class="film-detail">
         <div class="film-detail-td">NỘI DUNG PHIM
             <div class="fb-share-button" data-href="<?php echo curPageURL(); ?>" data-layout="button_count" style="float: right;">
@@ -131,13 +121,13 @@
                 fjs.parentNode.insertBefore(js, fjs);
             }(document, 'script', 'facebook-jssdk'));
         </script>
-        <p><?php echo $data->description?></p>
+        <p><?php echo $data['data']->description?></p>
     </div>
 
     <div class="film-detail">
         <div class="film-detail-td">TRAILER</div>
         <div class="ytb-trailer">
-            <iframe src="<?php echo "https://www.youtube.com/embed/". explode("/",$data->trailer)[3]?>" width="100%" height="100%" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" frameborder="no" scrolling="no"></iframe>
+            <iframe src="<?php echo "https://www.youtube.com/embed/". explode("/",$data['data']->trailer)[3]?>" width="100%" height="100%" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true" frameborder="no" scrolling="no"></iframe>
         </div>
     </div>
 </div>
