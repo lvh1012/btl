@@ -17,6 +17,10 @@ class userController extends framework
 
     public function login()
     {
+        if ($this->getSession('userId')) {
+            $this->redirect("home");
+            die();
+        }
         if ($_SERVER["REQUEST_METHOD"] != "POST") {
             $this->view("login");
         } else {
@@ -26,6 +30,10 @@ class userController extends framework
 
     public function register()
     {
+        if ($this->getSession('userId')) {
+            $this->redirect("home");
+            die();
+        }
         if ($_SERVER["REQUEST_METHOD"] != "POST") {
             $this->view("register");
         } else {
@@ -38,8 +46,7 @@ class userController extends framework
         if (!$this->getSession('userId')) {
             $this->setNoti("notiLoginForm", "Bạn phải đăng nhập để sử dụng chức năng này");
             $this->redirect("user/login");
-        }
-        else{
+        } else {
             $data = $this->userModel->getFavoriteFilm($this->getSession('userId'));
             $this->view("favorite", $data);
         }

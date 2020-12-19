@@ -13,7 +13,7 @@ class apiController extends framework
             $this->response(200, $rp);
         } else {
             $rp = ['status' => 'error'];
-            $this->response(200, $rp);
+            $this->response(401, $rp);
         }
     }
 
@@ -24,7 +24,7 @@ class apiController extends framework
         $cmt = new commentModel;
         if ($cmt->addComment($data)){
             $this->response(200);
-        }
+        }else $this->response(500);
     }
 
     public function response($status_code, $data = NULL)

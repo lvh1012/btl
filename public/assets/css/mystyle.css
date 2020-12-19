@@ -1007,7 +1007,7 @@ select {
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
   color: #f1f1f1;
-  width: 140px;
+  width: 145px;
   padding: 10px;
   text-align: center;
 }
@@ -1020,6 +1020,7 @@ select {
   flex: 460px;
   padding: 10px;
   padding-right: 0px;
+  padding-bottom: 0px;
 }
 
 .movie-tt h1 {
@@ -1048,7 +1049,8 @@ select {
   padding: 5px;
   background-color: #333;
   overflow-x: auto;
-  height: 115px;
+  height: 140px;
+  padding-bottom: 0px;
 }
 /* 
 .movie,

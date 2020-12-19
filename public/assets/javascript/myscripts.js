@@ -50,6 +50,10 @@ function addFavorite(ele) {
         ele.classList.remove('add-favorite');
         ele.classList.add('remove-favorite');
       }
+
+      if (this.readyState == 4 && this.status == 401) {
+        alert('Bạn phải đăng nhập để sử dụng chức năng này');
+      }
     };
 
     api.open("POST", "/api/addFavorite", true);
@@ -68,6 +72,10 @@ function addFavorite(ele) {
       if (this.readyState == 4 && this.status == 200) {
         ele.classList.remove('remove-favorite');
         ele.classList.add('add-favorite');
+      }
+
+      if (this.readyState == 4 && this.status == 401) {
+        alert('Bạn phải đăng nhập để sử dụng chức năng này');
       }
     };
 
@@ -94,6 +102,10 @@ function sendComment() {
         + contain.innerHTML;
       document.getElementById("comment").value = '';
 
+    }
+
+    if (this.readyState == 4 && this.status == 500) {
+      alert('Hệ thống đang bị lỗi');
     }
   };
   api.open("POST", "/api/comment", true);
