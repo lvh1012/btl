@@ -12,6 +12,18 @@ class filmModel extends database {
         return $this->fetch();
     }
 
+    public function searchByKeyword($keyword){
+        if(!empty($keyword)){
+            $keyword = strtolower($keyword);
+            $this->Query('SELECT * FROM film WHERE LOWER(name_en) like ? or LOWER(name_vi) like ?', ['%'.$keyword.'%','%'.$keyword.'%']);
+            return $this->fetchall();
+        }
+        else{
+            $this->Query('SELECT * FROM film');
+            return $this->fetchall();
+        }
+    }
+
     public function getFilm($type){
         $this->Query('SELECT * FROM film, film_type where film.film_id = film_type.film_id and film_type.type_id = ? order by film.film_id DESC', [$type]);
         return $this->fetchall();

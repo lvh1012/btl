@@ -29,7 +29,7 @@ if (!$conn) {
                 </a>
             </div>
             <div class="search">
-                <form method="GET" id="form-search" action="tim-kiem/">
+                <form method="POST" id="form-search" action="/film/search/">
                     <div>
                         <input id="search-input" type="text" name="keyword" placeholder="Tên phim" value="">
                         <input id="search-submit" class="" value=" " type="submit"></div>
@@ -100,7 +100,7 @@ if (!$conn) {
                     </div>
                 </li>
                 <li class="movie">
-                    <a href="javascript:void(0);">phim lẻ</a>
+                    <a href="/film/filmle">phim lẻ</a>
                     <div class="sub-menu list-movie">
                         <ul class="sub">
                             <?php
@@ -113,7 +113,7 @@ if (!$conn) {
                     </div>
                 </li>
                 <li class="seri">
-                    <a href="javascript:void(0);">phim bộ</a>
+                    <a href="/film/filmbo">phim bộ</a>
                     <div class="sub-menu list-seri">
                         <ul class="sub">
                             <li>
@@ -138,7 +138,7 @@ if (!$conn) {
                     </div>
                 </li>
                 <li>
-                    <a href="javascript:void(0);">phim chiếu rạp</a>
+                    <a href="/film/filmcr">phim chiếu rạp</a>
                 </li>
                 <li>
                     <a href="javascript:void(0);">Trailer</a>

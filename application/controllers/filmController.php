@@ -69,6 +69,15 @@ class filmController extends framework
         $this->view("watch", $data);
     }
 
+    public function search(){
+        $keyword = $_POST['keyword'];
+        $data = [
+            'data' => $this->filmModel->searchByKeyword($keyword),
+            'keyword' => $keyword];
+        // var_dump($data);
+        $this->view('search', $data);
+    }
+
     public function download($filmID)
     {
         $film = $this->filmModel->getFilmByID($filmID);
