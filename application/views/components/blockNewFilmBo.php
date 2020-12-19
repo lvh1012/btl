@@ -3,7 +3,7 @@
         <span class="title">
             Phim bộ mới cập nhật
         </span>
-        <a class="more" href="phim-le/" title="Phim bộ mới cập nhật">
+        <a class="more" href="/film/filmbo" title="Phim bộ mới cập nhật">
             Xem thêm
         </a>
     </h2>
@@ -20,7 +20,7 @@
                         <div class="movie-meta">';
                 echo '<div class="movie-title-vi">' . $film->name_vi . '</div>';
                 echo '<span class="movie-title-en">' . $film->name_en . '</span>';
-                echo '<span class="movie-title-time">' . $film->time . ' phút</span>';
+                echo '<span class="movie-title-time">' . $film->time . ' phút/tập</span>';
                 echo '<span class="ribbon">HD-Vietsub</span>';
                 echo ' </div>
                 </div>

@@ -14,7 +14,7 @@ if (!$conn) {
 <html>
 
 <head>
-    <title>Page Title</title>
+    <title>PHIMHAY.VN</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="<?php echo BASEURL . "/assets/css/mystyle.css" ?>">
     <link rel="shortcut icon" href="<?php echo BASEURL . "/assets/images/favicon.ico" ?>" type="image/x-icon" />
@@ -161,19 +161,20 @@ if (!$conn) {
                 <!-- trần huy -->
                 <div class="slides">
                     <div class="slide">
-                        <a href="https://www.youtube.com/watch?v=0R8IbpKXavM&ab_channel=MINOFFICIAL" title="Ten film">
-                            <img class="image-slide" src="http://pic0.iqiyipic.com/common/lego/20201212/a4efc9c74bcd46b89cd4862372d4c772.webp" alt="slide image">
+                        <a href="http://phimhay.vn/film/detail/81" title="BIỆT ĐỘI SIÊU ANH HÙNG 4: HỒI KẾT">
+                            <img class="image-slide" src="http://image.phimmoizz.net/post/2019/04/21/popup-avenger-endgame-800kb.jpg" alt="BIỆT ĐỘI SIÊU ANH HÙNG 4: HỒI KẾT">
                         </a>
                     </div>
 
                     <div class="slide">
-                        <a href="https://www.youtube.com/watch?v=EWz4fITO5qg&ab_channel=MINOFFICIAL" title="Ten film">
-                            <img class="image-slide" src="http://pic2.iqiyipic.com/common/lego/20201003/6933dfb56ba649139a47d52e51a00279.webp" alt="slide image">
+                        <a href="http://phimhay.vn/film/detail/85" title="CÂU CHUYỆN ĐỒ CHƠI 4">
+                            <img class="image-slide" src="http://image.phimmoizz.net/post/2019/01/12/toy-story-4.jpg" alt="CÂU CHUYỆN ĐỒ CHƠI 4">
                         </a>
                     </div>
+
                     <div class="slide">
-                        <a href="https://www.youtube.com/watch?v=UBv-GcD3jHE&ab_channel=Kha" title="Ten film">
-                            <img class="image-slide" src="http://pic2.iqiyipic.com/common/lego/20201212/1342e90791c44e1b96b517cebaf5382c.webp" alt="slide image">
+                        <a href="http://phimhay.vn/film/detail/83" title="GÃ HỀ">
+                            <img class="image-slide" src="http://image.phimmoizz.net/post/2019/10/09/joker-2019-poster-joaquin-phoenix-uhdpaper-com-8k-7-100-wp-thumbnail.jpg" alt="GÃ HỀ">
                         </a>
                     </div>
                 </div>

@@ -1,3 +1,7 @@
+<?php
+echo '<script>document.title=" Xem phim '.$data['data']->name_vi.' | PHIMHAY.VN";</script>';
+?>
+
 <div class="watch-film">
     <div class="movie-gt">
 
@@ -20,7 +24,7 @@
     </div>
 
     <div class="movie" style="margin-top: 10px">
-        <iframe width="640" height="360" src="https://www.youtube.com/watch?v=gfas8m65tMo"></iframe>
+        <iframe width="640" height="360" src="<?php echo $data['data']->resource ?>"></iframe>
     </div>
 
     <div class="movie-dg" style="margin-top: 10px; background-color: #333;padding: 10px">

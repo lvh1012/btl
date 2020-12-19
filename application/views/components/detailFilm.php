@@ -1,3 +1,7 @@
+<?php
+echo '<script>document.title="'.$data['data']->name_vi.' | PHIMHAY.VN";</script>';
+?>
+
 <div class="detail">
     <div class="film">
         <div class="film-col">
@@ -27,7 +31,7 @@
                 </div>
                 <div class="card-nd">
                     <ul>
-                        <li><b>Trạng thái: </b><span style="color: red;">Hoàn tất</span></li>
+                        <li><b>Trạng thái: </b><span style="color: red;"><?php echo $data['data']->status?></span></li>
                         <li><b>Điểm IMDb: </b><span style="background-color: yellow; color: black;">
                                 6.2</span> (844 votes)</li>
                         <li>
@@ -42,7 +46,7 @@
                         <li><b>Thời lượng: </b><?php echo $data['data']->time?> phút</li>
                         <li><b>Chất lượng: </b>Bản đẹp</li>
                         <li><b>Độ phân giải: </b>Full HD</li>
-                        <li><b>Ngôn ngữ: </b>Phục đề tiếng Việt</li>
+                        <li><b>Ngôn ngữ: </b>Phụ đề tiếng Việt</li>
                         <li>
                             <b>Thể loại: </b>
                             <a href="#">Phim hài hước</a>,

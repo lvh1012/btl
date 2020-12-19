@@ -3,7 +3,7 @@
         <span class="title">
             Phim chiếu rạp mới
         </span>
-        <a class="more" href="" title="Phim chiếu rạp mới">
+        <a class="more" href="/film/filmcr" title="Phim chiếu rạp mới">
             Xem thêm
         </a>
     </h2>

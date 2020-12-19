@@ -3,7 +3,7 @@
         <span class="title">
             Phim lẻ mới cập nhật
         </span>
-        <a class="more" href="phim-le/" title="Phim lẻ mới cập nhật">
+        <a class="more" href="/film/filmle" title="Phim lẻ mới cập nhật">
             Xem thêm
         </a>
     </h2>

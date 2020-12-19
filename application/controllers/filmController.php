@@ -14,6 +14,21 @@ class filmController extends framework
         // $this->view("home");
     }
 
+    public function filmcr(){
+        $data = $this->filmModel->getFilm(1);
+        $this->view("filmcr", $data);
+    }
+
+    public function filmbo(){
+        $data = $this->filmModel->getFilm(3);
+        $this->view("filmbo", $data);
+    }
+
+    public function filmle(){
+        $data = $this->filmModel->getFilm(2);
+        $this->view("filmle", $data);
+    }
+
     public function detail($filmID = null)
     {
         $data = [ 
@@ -54,10 +69,10 @@ class filmController extends framework
         $this->view("watch", $data);
     }
 
-    public function download($file)
+    public function download($filmID)
     {
-        $filepath = ROOT . DS . "resource" . DS . $file . ".mp4";
-        echo $filepath;
+        $film = $this->filmModel->getFilmByID($filmID);
+        $filepath = ROOT . DS . "public" . $film->resource;
         // Process download
         if (file_exists($filepath)) {
             header('Content-Description: File Transfer');

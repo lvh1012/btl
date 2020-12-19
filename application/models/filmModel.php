@@ -7,6 +7,16 @@ class filmModel extends database {
         return $this->fetchall();
     }
 
+    public function getFilmByID($filmID){
+        $this->Query('SELECT resource FROM film where film_id =  ?', [$filmID]);
+        return $this->fetch();
+    }
+
+    public function getFilm($type){
+        $this->Query('SELECT * FROM film, film_type where film.film_id = film_type.film_id and film_type.type_id = ? order by film.film_id DESC', [$type]);
+        return $this->fetchall();
+    }
+
     public function increView($ID){
         $this->Query('update film set num_view = num_view + 1 where film_id = ?', [$ID]);
     }
