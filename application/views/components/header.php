@@ -145,7 +145,7 @@ if (!$conn) {
                     <a href="javascript:void(0);">Trailer</a>
                 </li>
                 <li>
-                    <a href="javascript:void(0);">top imdb 2020</a>
+                    <a href="/film/request">yêu cầu phim</a>
                 </li>
             </ul>
         </div>
