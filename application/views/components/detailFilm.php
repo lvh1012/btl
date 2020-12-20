@@ -26,7 +26,7 @@ echo '<script>document.title="'.$data['data']->name_vi.' | PHIMHAY.VN";</script>
         <div class="film-col">
             <div class="card">
                 <div class="card-td">
-                    <a href="#"><?php echo $data['data']->name_vi?></a>
+                    <a href="javascript:void(0);"><?php echo $data['data']->name_vi?></a>
                     <p style="color: #ddd;"><?php echo $data['data']->name_en . " (" . $data['data']->year . ")"?></p>
                 </div>
                 <div class="card-nd">
@@ -36,24 +36,26 @@ echo '<script>document.title="'.$data['data']->name_vi.' | PHIMHAY.VN";</script>
                                 6.2</span> (844 votes)</li>
                         <li>
                             <b>Đạo diễn: </b>
-                            <a href="#">Fernando Grostein Andrade</a></li>
+                            <?php
+                            foreach($data['director'] as $director){
+                                echo '<a href="/actor/detail/'.$director->person_id.'">' .$director->name. ', </a>';
+                            }?>
+                            
+                        </li>
                         <li>
                             <b>Quốc gia: </b>
-                            <a href="#">Mỹ</a>,
-                            <a href="#">Brazil</a>
+                            <a href="#">Mỹ</a>
                         </li>
-                        <li><b>Ngày phát hành: </b>17/4/2020</li>
+                        <li><b>Ngày phát hành: </b>N/A</li>
                         <li><b>Thời lượng: </b><?php echo $data['data']->time?> phút</li>
                         <li><b>Chất lượng: </b>Bản đẹp</li>
                         <li><b>Độ phân giải: </b>Full HD</li>
                         <li><b>Ngôn ngữ: </b>Phụ đề tiếng Việt</li>
                         <li>
                             <b>Thể loại: </b>
-                            <a href="#">Phim hài hước</a>,
-                            <a href="#">Phim chích kịch - Drama</a>,
-                            <a href="#">Phim lẻ</a>
+                            <a href="#">Hành động</a>
                         </li>
-                        <li><b>Công ty SX: </b>Gullane, Spray Films</li>
+                        <li><b>Công ty SX: </b>N/A</li>
                     </ul>
                 </div>
             </div>
@@ -64,34 +66,18 @@ echo '<script>document.title="'.$data['data']->name_vi.' | PHIMHAY.VN";</script>
         <div class="actors-td">Diễn viên</div>
 
         <div class="actors-ds">
-            <div class="actor">
-                <img src="http://image.phimmoizz.net/profile/23834/medium.jpg" style="width: 100%">
-                <div class="actor-tt">
-                    <a href="#">Noah Schnapp</a>
-                    <p>Abe</p>
-                </div>
-            </div>
-            <div class="actor">
-                <img src="http://image.phimmoizz.net/profile/23834/medium.jpg" style="width: 100%">
-                <div class="actor-tt">
-                    <a href="#">Noah Schnapp</a>
-                    <p>Abe</p>
-                </div>
-            </div>
-            <div class="actor">
-                <img src="http://image.phimmoizz.net/profile/23834/medium.jpg" style="width: 100%">
-                <div class="actor-tt">
-                    <a href="#">Noah Schnapp</a>
-                    <p>Abe</p>
-                </div>
-            </div>
-            <div class="actor">
-                <img src="http://image.phimmoizz.net/profile/23834/medium.jpg" style="width: 100%">
-                <div class="actor-tt">
-                    <a href="#">Noah Schnapp</a>
-                    <p>Abe</p>
-                </div>
-            </div>
+                    <?php 
+
+                    foreach($data['actor'] as $actor){
+                        echo '
+                        <div class="actor">
+                        <img src="'.  $actor->image  .'" style="width: 100px; height:133px">
+                        <div class="actor-tt">
+                            <a href="/actor/detail/'.$actor->person_id.'">'.  $actor->name  .'</a>
+                        </div>
+                        </div>';
+                    }
+                    ?>
         </div>
     </div>
 

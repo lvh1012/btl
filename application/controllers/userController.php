@@ -10,9 +10,9 @@ class userController extends framework
         $this->userModel = $this->model('userModel');
     }
 
-    public function index()
+    public function index($filmID)
     {
-        $this->view("home");
+        $this->view("not-found");
     }
 
     public function login()

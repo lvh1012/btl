@@ -11,7 +11,7 @@ class filmController extends framework
 
     public function index($filmID)
     {
-        // $this->view("home");
+        $this->view("not-found");
     }
 
     public function filmcr()
@@ -32,55 +32,71 @@ class filmController extends framework
         $this->view("filmle", $data);
     }
 
+    public function request()
+    {
+        $this->view("request");
+    }
+
     public function detail($filmID = null)
     {
-        $data = [
-            'data' => $this->filmModel->getDetail($filmID),
-            'comment' => $this->filmModel->getComment($filmID),
-            'favorite' => false,
-            'like' => false,
-            'dislike' => false
-        ];
-        if ($this->getSession('userId')) {
-            $data['favorite'] = $this->filmModel->isFavorite($this->getSession('userId'), $filmID);
-            $data['like'] = $this->filmModel->isLike($this->getSession('userId'), $filmID);
-            $data['dislike'] = $this->filmModel->isDislike($this->getSession('userId'), $filmID);
+        if (isset($filmID) && !empty($filmID)) {
+            $data = [
+                'data' => $this->filmModel->getDetail($filmID),
+                'comment' => $this->filmModel->getComment($filmID),
+                'favorite' => false,
+                'like' => false,
+                'dislike' => false,
+                'actor' => $this->filmModel->getActor($filmID),
+                'director' => $this->filmModel->getDirector($filmID),
+            ];
+            if ($this->getSession('userId')) {
+                $data['favorite'] = $this->filmModel->isFavorite($this->getSession('userId'), $filmID);
+                $data['like'] = $this->filmModel->isLike($this->getSession('userId'), $filmID);
+                $data['dislike'] = $this->filmModel->isDislike($this->getSession('userId'), $filmID);
+            }
+            $this->view("detail", $data);
+        } else {
+            $this->view("not-found");
         }
-        $this->view("detail", $data);
     }
 
     public function watch($filmID = null)
     {
-        // them phim vao danh sach xem gan nhat
-        $watchLatest = $this->getNoti("watchLatest");
-        if (isset($watchLatest)) {
-            $list = explode("|", $watchLatest);
-            if (!in_array($filmID, $list)) {
-                if (count($list) == 4) {
-                    array_shift($list);
+        if (isset($filmID) && !empty($filmID)) {
+            // them phim vao danh sach xem gan nhat
+            $watchLatest = $this->getNoti("watchLatest");
+            if (isset($watchLatest)) {
+                $list = explode("|", $watchLatest);
+                if (!in_array($filmID, $list)) {
+                    if (count($list) == 4) {
+                        array_shift($list);
+                    }
+                    array_push($list, $filmID);
+                    $this->setNoti("watchLatest", join("|", $list));
                 }
-                array_push($list, $filmID);
-                $this->setNoti("watchLatest", join("|", $list));
+            } else {
+                $this->setNoti("watchLatest", $filmID);
             }
-        } else {
-            $this->setNoti("watchLatest", $filmID);
+
+            // tang view len 1 don vi
+            $this->filmModel->increView($filmID);
+
+            $data = [
+                'data' => $this->filmModel->getDetail($filmID),
+                'comment' => $this->filmModel->getComment($filmID),
+                'like' => false,
+                'dislike' => false
+            ];
+
+            if ($this->getSession('userId')) {
+                $data['like'] = $this->filmModel->isLike($this->getSession('userId'), $filmID);
+                $data['dislike'] = $this->filmModel->isDislike($this->getSession('userId'), $filmID);
+            }
+            $this->view("watch", $data);
         }
-
-        // tang view len 1 don vi
-        $this->filmModel->increView($filmID);
-
-        $data = [
-            'data' => $this->filmModel->getDetail($filmID),
-            'comment' => $this->filmModel->getComment($filmID),
-            'like' => false,
-            'dislike' => false
-        ];
-
-        if ($this->getSession('userId')) {
-            $data['like'] = $this->filmModel->isLike($this->getSession('userId'), $filmID);
-            $data['dislike'] = $this->filmModel->isDislike($this->getSession('userId'), $filmID);
+        else{
+            $this->view("not-found");
         }
-        $this->view("watch", $data);
     }
 
     public function search()

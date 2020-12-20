@@ -28,6 +28,7 @@ textarea {
 /* width */
 ::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 
 /* Track */
@@ -1148,4 +1149,13 @@ select {
 
 .active {
   background: #4285f4;
+}
+
+.actor a {
+  font-size: 12px;
+  padding: 5px 0px 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: block;
 }

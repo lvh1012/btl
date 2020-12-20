@@ -38,6 +38,16 @@ class filmModel extends database {
         return $this->fetch();
     }
 
+    public function getActor($ID){
+        $this->Query('SELECT film_person.person_id, name, image FROM film_person, person where film_person.person_id = person.person_id and role = "A" and film_person.film_id = ? ', [$ID]);
+        return $this->fetchall();
+    }
+
+    public function getDirector($ID){
+        $this->Query('SELECT film_person.person_id, name, image FROM film_person, person where film_person.person_id = person.person_id and role = "D" and film_person.film_id = ? ', [$ID]);
+        return $this->fetchall();
+    }
+
     public function getComment($ID){
         $this->Query('SELECT * FROM comment, user WHERE user.user_id = comment.user_id and film_id=  ? order by time DESC', [$ID]);
         return $this->fetchall();
@@ -71,6 +81,3 @@ class filmModel extends database {
     }
 
 }
-
-
-?>

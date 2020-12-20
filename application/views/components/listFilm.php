@@ -7,7 +7,7 @@
     <div class="block-body">
         <ul class="list-film">
             <?php
-            foreach ($data as $film) {
+            foreach ($data['film'] as $film) {
                 echo '<li>
                 <a class="movie-item" href="/film/detail/'.$film->film_id.'">
                     <div class="block-wrap">

@@ -27,7 +27,7 @@ if (!$conn) {
             if (mysqli_num_rows($result) > 0) {
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo '<li class="list-top-movie-item">
-                            <a href="/film/detail/'.$row['film_id'].'">
+                            <a href="/film/detail/' . $row['film_id'] . '">
                                 <div class="list-top-movie-item-thumb">
                                     <img src="' . $row['poster'] . '" alt="">
                                 </div>
@@ -58,7 +58,7 @@ if (!$conn) {
                     // output data of each row
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo '<li class="list-top-movie-item">
-                        <a href="/film/detail/'.$row['film_id'].'">
+                        <a href="/film/detail/' . $row['film_id'] . '">
                             <div class="list-top-movie-item-thumb">
                                 <img src="' . $row['poster'] . '">
                             </div>
@@ -91,7 +91,7 @@ if (!$conn) {
                     // output data of each row
                     while ($row = mysqli_fetch_assoc($result)) {
                         echo '<li class="list-top-movie-item">
-                        <a href="/film/detail/'.$row['film_id'].'">
+                        <a href="/film/detail/' . $row['film_id'] . '">
                             <div class="list-top-movie-item-thumb">
                                 <img src="' . $row['poster'] . '" alt="">
                             </div>
@@ -104,8 +104,6 @@ if (!$conn) {
                     </li>';
                     }
                 }
-
-                mysqli_close($conn);
                 ?>
             </ul>
         </div>
@@ -117,42 +115,25 @@ if (!$conn) {
         </h2>
         <div class="right-box-body">
             <ul class="list-actor">
-                <li class="profile-item">
-                    <a href="">
-                        <img class="profile-image" src="http://image.phimmoizz.net/profile/20465/medium.jpg" alt="">
-                        <span class="profile-name">Yuki Kaji </span>
-                    </a>
-                </li>
-                <li class="profile-item">
-                    <a href="">
-                        <img class="profile-image" src="http://image.phimmoizz.net/profile/20465/medium.jpg" alt="">
-                        <span class="profile-name">Yuki Kaji </span>
-                    </a>
-                </li>
-                <li class="profile-item">
-                    <a href="">
-                        <img class="profile-image" src="http://image.phimmoizz.net/profile/20465/medium.jpg" alt="">
-                        <span class="profile-name">Yuki Kaji </span>
-                    </a>
-                </li>
-                <li class="profile-item">
-                    <a href="">
-                        <img class="profile-image" src="http://image.phimmoizz.net/profile/20465/medium.jpg" alt="">
-                        <span class="profile-name">Yuki Kaji </span>
-                    </a>
-                </li>
-                <li class="profile-item">
-                    <a href="">
-                        <img class="profile-image" src="http://image.phimmoizz.net/profile/20465/medium.jpg" alt="">
-                        <span class="profile-name">Yuki Kaji </span>
-                    </a>
-                </li>
-                <li class="profile-item">
-                    <a href="">
-                        <img class="profile-image" src="http://image.phimmoizz.net/profile/20465/medium.jpg" alt="">
-                        <span class="profile-name">Yuki Kaji </span>
-                    </a>
-                </li>
+                <?php
+
+                $sql = 'SELECT * FROM person where role = "A" order by person_id DESC LIMIT 4';
+                $result = mysqli_query($conn, $sql);
+
+                if (mysqli_num_rows($result) > 0) {
+                    // output data of each row
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo '<li class="profile-item">
+                        <a href="/actor/detail/'. $row['person_id'] .'">
+                        <img class="profile-image" src="'. $row['image'] .'" alt="">
+                        <span class="profile-name">'. $row['name'] .' </span>
+                        </a>
+                        </li>';
+                    }
+                }
+
+                mysqli_close($conn);
+                ?>
             </ul>
         </div>
     </div>
