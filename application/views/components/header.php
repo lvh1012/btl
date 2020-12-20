@@ -38,7 +38,8 @@ if (!$conn) {
             <div class="user-header">
                 <?php
                 if (isset($_SESSION['userId'])) {
-                    echo '<a href="/user/favorite" type="button" class="btn-red btn-small">Tủ phim</a>';
+                    echo '<a href="/user/like" type="button" class="btn-red btn-small">Yêu thích</a>';
+                    echo '<a href="/user/favorite" type="button" class="btn-red btn-small">Xem sau</a>';
                     echo '<a href="/user/logout" type="button" class="btn-black btn-small">Đăng xuất</a>';
                 } else {
                     echo '<a class="button-register" href="/user/register"></a>';

@@ -17,6 +17,36 @@ class apiController extends framework
         }
     }
 
+    public function like()
+    {
+        if ($_SESSION['userId']) {
+            $data = json_decode(file_get_contents('php://input'), true);
+            $data['user_id'] = $_SESSION['userId'];
+            $user = new userModel;
+            $user->like($data);
+            $rp = ['status' => 'ok'];
+            $this->response(200, $rp);
+        } else {
+            $rp = ['status' => 'error'];
+            $this->response(401, $rp);
+        }
+    }
+
+    public function dislike()
+    {
+        if ($_SESSION['userId']) {
+            $data = json_decode(file_get_contents('php://input'), true);
+            $data['user_id'] = $_SESSION['userId'];
+            $user = new userModel;
+            $user->dislike($data);
+            $rp = ['status' => 'ok'];
+            $this->response(200, $rp);
+        } else {
+            $rp = ['status' => 'error'];
+            $this->response(401, $rp);
+        }
+    }
+
     public function comment()
     {
         $data = json_decode(file_get_contents('php://input'), true);

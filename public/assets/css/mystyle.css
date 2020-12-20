@@ -678,11 +678,11 @@ select {
 
 .card-nd {
   background-color: #333;
-  max-height: 250px;
   overflow-y: scroll;
   font-size: 12px;
   line-height: 26px;
   padding: 10px;
+  height: 325px;
 }
 
 .card-nd ul {
@@ -1078,7 +1078,6 @@ select {
 }
 
 .movie-dg-nd {
-  padding: 5px;
   background-color: #333;
   font-size: 20px;
 }
@@ -1110,6 +1109,7 @@ select {
   line-height: 2.5;
   border-radius: 3px;
   border: 1px solid transparent;
+  margin-right: 2px;
 }
 
 .btn-red {
@@ -1129,4 +1129,25 @@ select {
   text-transform: uppercase;
   font: 40px/10px "UTMCafetaRegular";
   color: #dacb46;
+}
+
+.movie-dg-nd table p{
+  vertical-align: middle;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.btn-action {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  padding: 3px;
+  outline: none;
+  background: #9e9e9e;
+  cursor: pointer;
+}
+
+.active{
+  background: #4285f4;
 }

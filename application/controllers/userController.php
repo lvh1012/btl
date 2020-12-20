@@ -52,6 +52,17 @@ class userController extends framework
         }
     }
 
+    public function like()
+    {
+        if (!$this->getSession('userId')) {
+            $this->setNoti("notiLoginForm", "Bạn phải đăng nhập để sử dụng chức năng này");
+            $this->redirect("user/login");
+        } else {
+            $data = $this->userModel->getLikeFilm($this->getSession('userId'));
+            $this->view("like", $data);
+        }
+    }
+
     public function logout()
     {
         $this->unsetSession('userId');

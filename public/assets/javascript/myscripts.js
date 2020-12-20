@@ -112,3 +112,120 @@ function sendComment() {
   api.setRequestHeader("Content-type", "application/json");
   api.send(JSON.stringify(cmt));
 }
+
+function like() {
+  // neu button dang active thi bo like
+  if (document.getElementById("like").classList.contains('active')) {
+    var film = {
+      id: document.getElementById("film-id").value,
+      action: 'remove'
+    };
+
+    var api = new XMLHttpRequest();
+    api.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("like").classList.remove('active');
+        var countLike = parseInt(document.getElementById("count-like").textContent);
+        countLike = countLike - 1;
+        document.getElementById("count-like").innerHTML = countLike;
+      }
+
+      if (this.readyState == 4 && this.status == 401) {
+        alert('Bạn phải đăng nhập để sử dụng chức năng này');
+      }
+    };
+
+    api.open("POST", "/api/like", true);
+    api.setRequestHeader("Content-type", "application/json");
+    api.send(JSON.stringify(film));
+  }
+  else {
+    var film = {
+      id: document.getElementById("film-id").value,
+      action: 'add'
+    };
+
+    var api = new XMLHttpRequest();
+    api.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        if (document.getElementById("dislike").classList.contains('active')) {
+          document.getElementById("dislike").classList.remove('active');
+          var countDisLike = parseInt(document.getElementById("count-dislike").textContent);
+          countDisLike = countDisLike - 1;
+          document.getElementById("count-dislike").innerHTML = countDisLike;
+        }
+        document.getElementById("like").classList.add('active');
+        var countLike = parseInt(document.getElementById("count-like").textContent);
+        countLike = countLike + 1;
+        document.getElementById("count-like").innerHTML = countLike;
+      }
+
+      if (this.readyState == 4 && this.status == 401) {
+        alert('Bạn phải đăng nhập để sử dụng chức năng này');
+      }
+    };
+
+    api.open("POST", "/api/like", true);
+    api.setRequestHeader("Content-type", "application/json");
+    api.send(JSON.stringify(film));
+  }
+}
+
+// gui den api "/api/dislike"
+function dislike() {
+  // neu button dang active thi bo like
+  if (document.getElementById("dislike").classList.contains('active')) {
+    var film = {
+      id: document.getElementById("film-id").value,
+      action: 'remove'
+    };
+
+    var api = new XMLHttpRequest();
+    api.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("dislike").classList.remove('active');
+        var countDisLike = parseInt(document.getElementById("count-dislike").textContent);
+        countDisLike = countDisLike - 1;
+        document.getElementById("count-dislike").innerHTML = countDisLike;
+      }
+
+      if (this.readyState == 4 && this.status == 401) {
+        alert('Bạn phải đăng nhập để sử dụng chức năng này');
+      }
+    };
+
+    api.open("POST", "/api/dislike", true);
+    api.setRequestHeader("Content-type", "application/json");
+    api.send(JSON.stringify(film));
+  }
+  else {
+    var film = {
+      id: document.getElementById("film-id").value,
+      action: 'add'
+    };
+
+    var api = new XMLHttpRequest();
+    api.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        if (document.getElementById("like").classList.contains('active')) {
+          document.getElementById("like").classList.remove('active');
+          var countLike = parseInt(document.getElementById("count-like").textContent);
+          countLike = countLike - 1;
+          document.getElementById("count-like").innerHTML = countLike;
+        }
+        document.getElementById("dislike").classList.add('active');
+        var countDisLike = parseInt(document.getElementById("count-dislike").textContent);
+        countDisLike = countDisLike + 1;
+        document.getElementById("count-dislike").innerHTML = countDisLike;
+      }
+
+      if (this.readyState == 4 && this.status == 401) {
+        alert('Bạn phải đăng nhập để sử dụng chức năng này');
+      }
+    };
+
+    api.open("POST", "/api/dislike", true);
+    api.setRequestHeader("Content-type", "application/json");
+    api.send(JSON.stringify(film));
+  }
+}

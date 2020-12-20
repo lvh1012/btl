@@ -1,5 +1,5 @@
 <?php
-echo '<script>document.title=" Xem phim '.$data['data']->name_vi.' | PHIMHAY.VN";</script>';
+echo '<script>document.title=" Xem phim ' . $data['data']->name_vi . ' | PHIMHAY.VN";</script>';
 ?>
 
 <div class="watch-film">
@@ -8,14 +8,14 @@ echo '<script>document.title=" Xem phim '.$data['data']->name_vi.' | PHIMHAY.VN"
         <div class="movie-gt-left">
             <img src="<?php echo $data['data']->poster; ?>">
             <div class="movie-trailer">
-                <a href="<?php echo $data['data']->trailer?>">Trailer</a>
+                <a href="<?php echo $data['data']->trailer ?>">Trailer</a>
             </div>
         </div>
 
         <div class="movie-gt-right">
             <div class="movie-tt">
-                <h1><a href="#"><?php echo "XEM PHIM ". $data['data']->name_vi; ?></a></h1>
-                <p><?php echo "Xem phim ". $data['data']->name_en; ?></p>
+                <h1><a href="#"><?php echo "XEM PHIM " . $data['data']->name_vi; ?></a></h1>
+                <p><?php echo "Xem phim " . $data['data']->name_en; ?></p>
                 <div class="movie-tt-nd">
                     <p><?php echo $data['data']->description; ?>[<a href="<?php echo "/film/detail/" . $data['data']->film_id; ?>">Xem thêm</a>]</p>
                 </div>
@@ -28,7 +28,7 @@ echo '<script>document.title=" Xem phim '.$data['data']->name_vi.' | PHIMHAY.VN"
     </div>
 
     <div class="movie-dg" style="margin-top: 10px; background-color: #333;padding: 10px">
-        <h1>Đánh giá phim <div class="fb-share-button" data-href="<?php echo "http://phimhay.vn/film/detail/" .$data['data']->film_id ?>" data-layout="button_count" style="float: right; margin-top: -10px;">
+        <h1>Đánh giá phim <div class="fb-share-button" data-href="<?php echo "http://phimhay.vn/film/detail/" . $data['data']->film_id ?>" data-layout="button_count" style="float: right; margin-top: -10px;">
             </div>
         </h1>
         <script>
@@ -42,17 +42,37 @@ echo '<script>document.title=" Xem phim '.$data['data']->name_vi.' | PHIMHAY.VN"
             }(document, 'script', 'facebook-jssdk'));
         </script>
         <div class="movie-dg-nd">
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <p>7 / 10 (từ 1823 votes)</p>
+            <table>
+                <td>
+                    <?php
+                    if ($data['like']) {
+                        echo '<button id="like" class="btn-action active" onclick="like()">';
+                    } else {
+                        echo '<button id="like" class="btn-action" onclick="like()">';
+                    }
+                    ?>
+                    <img src="/assets/images/like.png">
+                    </button>
+                </td>
+                <td>
+                    <p id="count-like"><?php echo $data['data']->num_like ?></p>
+                </td>
+                <td>
+
+                    <?php
+                    if ($data['dislike']) {
+                        echo '<button id="dislike" class="btn-action active" style="margin-left: 10px;" onclick="dislike()">';
+                    } else {
+                        echo '<button id="dislike" class="btn-action" style="margin-left: 10px;" onclick="dislike()">';
+                    }
+                    ?>
+                        <img src="/assets/images/dislike.png">
+                    </button>
+                </td>
+                <td>
+                    <p id="count-dislike"><?php echo $data['data']->num_dislike ?></p>
+                </td>
+            </table>
         </div>
     </div>
 

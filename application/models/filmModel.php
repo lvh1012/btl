@@ -52,6 +52,24 @@ class filmModel extends database {
         }
     }
 
+    public function isLike($user_id, $film_id){
+        $this->Query('SELECT * FROM like_film where user_id =  ? and film_id = ?', [$user_id, $film_id]);
+        if($this->rowCount() > 0 ){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function isDislike($user_id, $film_id){
+        $this->Query('SELECT * FROM dislike_film where user_id =  ? and film_id = ?', [$user_id, $film_id]);
+        if($this->rowCount() > 0 ){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
 
 

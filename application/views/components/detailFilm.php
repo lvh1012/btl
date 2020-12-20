@@ -57,21 +57,6 @@ echo '<script>document.title="'.$data['data']->name_vi.' | PHIMHAY.VN";</script>
                     </ul>
                 </div>
             </div>
-            <div class="card">
-                <div class="card-td">Đánh giá phim</div>
-                <div class="card-dg">
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                </div>
-            </div>
         </div>
     </div>
 

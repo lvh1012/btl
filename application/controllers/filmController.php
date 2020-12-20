@@ -14,30 +14,37 @@ class filmController extends framework
         // $this->view("home");
     }
 
-    public function filmcr(){
+    public function filmcr()
+    {
         $data = $this->filmModel->getFilm(1);
         $this->view("filmcr", $data);
     }
 
-    public function filmbo(){
+    public function filmbo()
+    {
         $data = $this->filmModel->getFilm(3);
         $this->view("filmbo", $data);
     }
 
-    public function filmle(){
+    public function filmle()
+    {
         $data = $this->filmModel->getFilm(2);
         $this->view("filmle", $data);
     }
 
     public function detail($filmID = null)
     {
-        $data = [ 
-            'data' =>$this->filmModel->getDetail($filmID),
+        $data = [
+            'data' => $this->filmModel->getDetail($filmID),
             'comment' => $this->filmModel->getComment($filmID),
-            'favorite' => false
+            'favorite' => false,
+            'like' => false,
+            'dislike' => false
         ];
-        if ($this->getSession('userId')){
+        if ($this->getSession('userId')) {
             $data['favorite'] = $this->filmModel->isFavorite($this->getSession('userId'), $filmID);
+            $data['like'] = $this->filmModel->isLike($this->getSession('userId'), $filmID);
+            $data['dislike'] = $this->filmModel->isDislike($this->getSession('userId'), $filmID);
         }
         $this->view("detail", $data);
     }
@@ -62,18 +69,27 @@ class filmController extends framework
         // tang view len 1 don vi
         $this->filmModel->increView($filmID);
 
-        $data = [ 
-            'data' =>$this->filmModel->getDetail($filmID),
-            'comment' => $this->filmModel->getComment($filmID)
+        $data = [
+            'data' => $this->filmModel->getDetail($filmID),
+            'comment' => $this->filmModel->getComment($filmID),
+            'like' => false,
+            'dislike' => false
         ];
+
+        if ($this->getSession('userId')) {
+            $data['like'] = $this->filmModel->isLike($this->getSession('userId'), $filmID);
+            $data['dislike'] = $this->filmModel->isDislike($this->getSession('userId'), $filmID);
+        }
         $this->view("watch", $data);
     }
 
-    public function search(){
+    public function search()
+    {
         $keyword = $_POST['keyword'];
         $data = [
             'data' => $this->filmModel->searchByKeyword($keyword),
-            'keyword' => $keyword];
+            'keyword' => $keyword
+        ];
         // var_dump($data);
         $this->view('search', $data);
     }
