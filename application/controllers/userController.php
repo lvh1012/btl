@@ -89,8 +89,23 @@ class userController extends framework
 
         if (empty($userData['password'])) {
             $userData['passwordError'] = "Password is required";
-        } else if (strlen($userData['password']) < 6) {
-            $userData['passwordError'] = "Password must be 6 characters long";
+        } else {
+            $uppercase = preg_match('@[A-Z]@', $userData['password']);
+            $lowercase = preg_match('@[a-z]@', $userData['password']);
+            $number    = preg_match('@[0-9]@', $userData['password']);
+
+            if (!$uppercase) {
+                $userData['passwordError'] = "Mật khẩu phải có ít nhất 1 chữ cái hoa";
+            }
+            if (!$lowercase) {
+                $userData['passwordError'] = "Mật khẩu phải có ít nhất 1 chữ cái thường";
+            }
+            if (!$number) {
+                $userData['passwordError'] = "Mật khẩu phải có ít nhất 1 chữ số";
+            }
+            if (strlen($userData['password']) < 6) {
+                $userData['passwordError'] = "Password must be 6 characters long";
+            }
         }
 
         if (empty($userData['emailError']) && empty($userData['passwordError'])) {
@@ -145,8 +160,23 @@ class userController extends framework
 
         if (empty($userData['password'])) {
             $userData['passwordError'] = "Password is required";
-        } else if (strlen($userData['password']) < 6) {
-            $userData['passwordError'] = "Password must be 6 characters long";
+        } else {
+            $uppercase = preg_match('@[A-Z]@', $userData['password']);
+            $lowercase = preg_match('@[a-z]@', $userData['password']);
+            $number    = preg_match('@[0-9]@', $userData['password']);
+
+            if (!$uppercase) {
+                $userData['passwordError'] = "Mật khẩu phải có ít nhất 1 chữ cái hoa";
+            }
+            if (!$lowercase) {
+                $userData['passwordError'] = "Mật khẩu phải có ít nhất 1 chữ cái thường";
+            }
+            if (!$number) {
+                $userData['passwordError'] = "Mật khẩu phải có ít nhất 1 chữ số";
+            }
+            if (strlen($userData['password']) < 6) {
+                $userData['passwordError'] = "Password must be 6 characters long";
+            }
         }
 
         if (
