@@ -33,10 +33,10 @@
                 echo '<div class="comment-content">
                         <div style="display: flex;align-items: center;">
                      <img class="avatar-content" src="https://secure.gravatar.com/avatar/6a9c99ca913c3cd3c4b1264f90eb9d17?s=48&d=mm&r=g" alt="">
-                     <label><strong style="color: #ffffff;">'.$comment->name.'</strong></label>
-                     <span style="display: inline-block; color: #ddd; opacity: 0.5;font-size: 12px;">'.$comment->time.'</span>
+                     <label><strong style="color: #ffffff;">'.htmlspecialchars($comment->name).'</strong></label>
+                     <span style="display: inline-block; color: #ddd; opacity: 0.5;font-size: 12px;">'.htmlspecialchars($comment->time).'</span>
                     </div>
-                     <span style="color: #ddd;margin-left: 35px;">'.$comment->content.'</p>
+                     <span style="color: #ddd;margin-left: 35px;">'.htmlspecialchars($comment->content).'</p>
                     </div>';
             }
             ?>

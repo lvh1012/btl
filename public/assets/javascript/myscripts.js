@@ -33,6 +33,10 @@ document.querySelector(".prev-slide").addEventListener("click", function () {
   restart();
 });
 
+function escapeHTML(mystring){
+  return mystring.replace(/&/g, "&amp;").replace(/>/g, "&gt;").replace(/</g, "&lt;").replace(/"/g, "&quot;");
+}
+
 
 // Hàm gọi api thêm/xóa phim yêu thích
 function addFavorite(ele) {
@@ -98,10 +102,14 @@ function sendComment() {
   api.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       var contain = document.getElementById("list-cmt");
-      contain.innerHTML = "<div class=\"comment-content\"><div style=\"display: flex;align-items: center;\"><img class=\"avatar-content\" src=\"https://secure.gravatar.com/avatar/6a9c99ca913c3cd3c4b1264f90eb9d17?s=48&d=mm&r=g\"><label><strong style=\"color: #ffffff;\">" + document.getElementById("username").value + "</strong></label><span style=\"display: inline-block; color: #ddd; opacity: 0.5;font-size: 12px;\">Vừa xong</span></div><span style=\"color: #ddd;margin-left: 35px;\">" + document.getElementById("comment").value + "</p></div>"
-        + contain.innerHTML;
+      console.log(escapeHTML(document.getElementById("comment").value) );
+      contain.innerHTML = "<div class=\"comment-content\"><div style=\"display: flex;align-items: center;\"><img class=\"avatar-content\" src=\"https://secure.gravatar.com/avatar/6a9c99ca913c3cd3c4b1264f90eb9d17?s=48&d=mm&r=g\"><label><strong style=\"color: #ffffff;\">" 
+      + document.getElementById("username").value 
+      + "</strong></label><span style=\"display: inline-block; color: #ddd; opacity: 0.5;font-size: 12px;\">Vừa xong</span></div><span style=\"color: #ddd;margin-left: 35px;\">" 
+      + escapeHTML(document.getElementById("comment").value) 
+      + "</p></div>"
+      + contain.innerHTML;
       document.getElementById("comment").value = '';
-
     }
 
     if (this.readyState == 4 && this.status == 500) {
