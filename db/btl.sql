@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: localhost:3306
--- Thời gian đã tạo: Th12 21, 2020 lúc 09:18 AM
+-- Thời gian đã tạo: Th12 21, 2020 lúc 10:13 AM
 -- Phiên bản máy phục vụ: 5.7.32-0ubuntu0.18.04.1
 -- Phiên bản PHP: 7.4.13
 
@@ -74,18 +74,7 @@ CREATE TABLE `comment` (
 --
 
 INSERT INTO `comment` (`comment_id`, `time`, `content`, `user_id`, `film_id`) VALUES
-(7, '2020-12-19 02:56:12', 'test binh luan', 5, 35),
-(10, '2020-12-19 13:17:33', 'day la mot binh luan', 5, 35),
-(11, '2020-12-19 13:17:43', 'day la mot binh luan', 5, 35),
-(12, '2020-12-19 13:17:44', 'day la mot binh luan', 5, 35),
-(13, '2020-12-19 13:17:44', 'day la mot binh luan', 5, 35),
-(14, '2020-12-19 13:17:44', 'day la mot binh luan', 5, 35),
-(15, '2020-12-19 13:18:49', 'xin chao', 5, 35),
-(16, '2020-12-19 13:44:13', 'binh luan moi', 5, 35),
-(17, '2020-12-19 13:45:49', 'hihi', 5, 35),
-(18, '2020-12-19 13:46:08', 'aaaaaaâ', 5, 35),
-(19, '2020-12-19 16:21:31', 'new comt', 5, 31),
-(20, '2020-12-20 22:02:14', 'hello', 5, 85);
+(25, '2020-12-21 10:12:42', 'phim rất hay', 8, 85);
 
 -- --------------------------------------------------------
 
@@ -108,23 +97,6 @@ CREATE TABLE `favorite` (
   `user_id` int(11) NOT NULL,
   `film_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Đang đổ dữ liệu cho bảng `favorite`
---
-
-INSERT INTO `favorite` (`user_id`, `film_id`) VALUES
-(5, 11),
-(5, 13),
-(5, 14),
-(5, 15),
-(5, 28),
-(5, 30),
-(5, 33),
-(5, 50),
-(5, 81),
-(5, 83),
-(5, 85);
 
 -- --------------------------------------------------------
 
@@ -201,7 +173,7 @@ INSERT INTO `film` (`film_id`, `name_vi`, `name_en`, `poster`, `resource`, `year
 (82, 'SÁT THỦ JOHN WICK 3: CHUẨN BỊ CHIẾN TRANH', 'John Wick: Chapter 3 - Parabellum', 'http://image.phimmoizz.net/film/8608/poster.medium.jpg', '/assets/movie/demo.mp4', 2019, NULL, 'Hoàn tất', 0, 0, 0, 'Sau khi trở thành \"giải thưởng lớn\" của giới sát thủ toàn cầu, siêu sát thủ John Wick phải cùng chú chó cưng lên đường chạy trốn. Với giá 14 triệu $, John Wick trở thành mục tiêu béo bở của bất cứ kẻ săn đầu người nào.\r\n\r\n', 131, 'https://youtu.be/rzJ2yHEbLrY'),
 (83, 'GÃ HỀ', 'Joker', 'http://image.phimmoizz.net/film/8592/poster.medium.jpg', '/assets/movie/demo.mp4', 2019, NULL, 'Hoàn tất', 0, 0, 0, 'JOKER từ lâu đã là siêu ác nhân huyền thoại của điện ảnh thế giới. Nhưng có bao giờ bạn tự hỏi, Joker đến từ đâu và điều gì đã biến Joker trở thành biểu tượng tội lỗi của thành phố Gotham? JOKER sẽ là cái nhìn độc đáo về tên ác nhân khét tiếng của Vũ trụ DC – một câu chuyện gốc thấm nhuần, nhưng tách biệt rõ ràng với những truyền thuyết quen thuộc xoay quanh nhân vật mang đầy tính biểu tượng này.\r\n', 122, 'https://youtu.be/K1-11dWJocM'),
 (84, 'KÝ SINH TRÙNG', 'Parasite', 'http://image.phimmoizz.net/film/8610/poster.medium.jpg', '/assets/movie/demo.mp4', 2019, NULL, 'Hoàn tất', 0, 0, 0, '“Ký Sinh Trùng” là bộ phim do đạo diễn Bong Joon-ho dàn dựng xoay quanh một gia đình nghèo. Gia đình này sống trong một căn hộ tồi tàn ở dưới tầng hầm một khu nhà cho thuê, điện thì bị cắt, chật vật chạy ăn từng bữa. Cho tới một ngày, người con trai lớn được giới thiệu làm gia sư tiếng Anh cho con gái của một gia đình giàu có. Choáng ngợp trước cơ ngơi của gia chủ, cậu bèn lên kế hoạch đưa cả gia đình mình thâm nhập vào ngôi nhà giàu có nhưng dễ tin người này, bắt đầu cuộc sống “ký sinh”.', 131, 'https://youtu.be/gzbLbA2zs_E'),
-(85, 'CÂU CHUYỆN ĐỒ CHƠI 4', 'Toy Story 4 ', 'http://image.phimmoizz.net/film/8163/poster.medium.jpg', '/assets/movie/demo.mp4', 2019, NULL, 'Hoàn tất', 1, 0, 59, 'Sự trở lại rất hào hứng của dàn đồ chơi quen thuộc như Woody, Buzz Lightyear, Jessie... cùng hai nhân vật mới sẽ xuất hiện trong Toy Story4: Ducky và Bunny!', 100, 'https://youtu.be/CjpegSt3Bzc');
+(85, 'CÂU CHUYỆN ĐỒ CHƠI 4', 'Toy Story 4 ', 'http://image.phimmoizz.net/film/8163/poster.medium.jpg', '/assets/movie/demo.mp4', 2019, NULL, 'Hoàn tất', 1, 0, 63, 'Sự trở lại rất hào hứng của dàn đồ chơi quen thuộc như Woody, Buzz Lightyear, Jessie... cùng hai nhân vật mới sẽ xuất hiện trong Toy Story4: Ducky và Bunny!', 100, 'https://youtu.be/CjpegSt3Bzc');
 
 -- --------------------------------------------------------
 
@@ -344,14 +316,6 @@ CREATE TABLE `like_film` (
   `film_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Đang đổ dữ liệu cho bảng `like_film`
---
-
-INSERT INTO `like_film` (`user_id`, `film_id`) VALUES
-(5, 81),
-(5, 85);
-
 -- --------------------------------------------------------
 
 --
@@ -457,8 +421,8 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`user_id`, `name`, `email`, `gender`, `password`, `role`) VALUES
-(5, 'Admin', 'admin@gmail.com', 'm', '$2y$10$ReNiI6P.LRXgAr1w36XN.ONaJfnSlBR3Xx6AnmD1YrKpAuXV9s9Wq', 'A'),
-(6, 'Lê Viết Hoàng', 'lehoang99.18xt@gmail.com', 'm', '$2y$10$Ldivj7yvFl4VtlUB8.FanOglejv8m1PbTMlDHPgiag91mbnAZZoMu', 'U');
+(7, 'Admin', 'admin@gmail.com', 'm', '$2y$10$LekYJDLDmLftpZSKjVa8H.i3j6RdKxrjapaKZciBqDkqZAVkOBXT.', 'A'),
+(8, 'Lê Viết Hoàng', 'lehoang99.18xt@gmail.com', 'm', '$2y$10$wpSJoqi2dI2RZ2mM3inaVeNlNxMGe.40m2.iYDlOap0xAfsm0K4kO', 'U');
 
 --
 -- Chỉ mục cho các bảng đã đổ
@@ -571,7 +535,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT cho bảng `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 --
 -- AUTO_INCREMENT cho bảng `film`
 --
@@ -591,7 +555,7 @@ ALTER TABLE `type`
 -- AUTO_INCREMENT cho bảng `user`
 --
 ALTER TABLE `user`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 --
 -- Các ràng buộc cho các bảng đã đổ
 --
