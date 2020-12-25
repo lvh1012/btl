@@ -6,9 +6,13 @@ class framework
     public function view($viewName, $data = [])
     {
         if (file_exists(".." . DS . "application" . DS . "views" . DS . $viewName . ".php")) {
+            require_once ".." . DS . "application" . DS . "views" . DS . "components" . DS . "header.php";
             require_once ".." . DS . "application" . DS . "views" . DS . $viewName . ".php";
+            require_once ".." . DS . "application" . DS . "views" . DS . "components" . DS . "footer.php";
         } else {
+            require_once ".." . DS . "application" . DS . "views" . DS . "components" . DS . "header.php";
             require_once ".." . DS . "application" . DS . "views" . DS . "not-found.php";
+            require_once ".." . DS . "application" . DS . "views" . DS . "components" . DS . "footer.php";
         }
     }
 
